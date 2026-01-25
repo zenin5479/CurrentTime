@@ -14,6 +14,7 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
+      // Точное время в Unix‑timestamp в миллисекундах (13‑значное число)
       static void CaseOne()
       {
          Console.WriteLine("Текущее UTC время: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
