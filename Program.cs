@@ -6,7 +6,17 @@ namespace CurrentTime
    {
       static void Main()
       {
-         Console.WriteLine("Hello World!");
+         CaseOne();
+         Console.WriteLine();
+         CaseTwo();
+         Console.WriteLine();
+         CaseThree();
+         Console.WriteLine();
+         CaseFour();
+         Console.WriteLine();
+         CaseFive();
+
+         Console.ReadKey();
       }
    }
 }
