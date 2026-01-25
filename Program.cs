@@ -10,16 +10,11 @@ namespace CurrentTime
          Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
-         CaseThree();
-         Console.WriteLine();
-         CaseFour();
-         Console.WriteLine();
-         CaseFive();
 
          Console.ReadKey();
       }
 
-      static void CaseFive()
+      static void CaseOne()
       {
          Console.WriteLine("Текущее UTC время: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          Console.WriteLine("==========================================");
@@ -59,7 +54,7 @@ namespace CurrentTime
       }
 
       // Точное время в Unix‑timestamp в миллисекундах (13‑значное число)
-      static void CaseFour()
+      static void CaseTwo()
       {
          Console.WriteLine("Точное время в Unix timestamp в миллисекундах (13-значное число)");
 
