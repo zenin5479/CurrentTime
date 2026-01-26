@@ -41,7 +41,7 @@ namespace CurrentTime
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
 
-         // Способ 4.
+         // Способ 4
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 4. DateTime.UtcNow и вычитание эпохи");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
@@ -51,7 +51,7 @@ namespace CurrentTime
          long timestampfour = (long)span.TotalMilliseconds;
          Console.WriteLine("Unix timestamp (ms): {0}", timestampfour);
 
-         // Способ 5.
+         // Способ 5
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 5. Через DateTimeOffset с явным преобразованием");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
