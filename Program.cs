@@ -34,10 +34,11 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
          // Способ 3
-
+         Console.WriteLine("========================================================");
+         Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
-         Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
+
          Console.WriteLine("Результат: {0}", timestampthree);
          Console.WriteLine("Длина: {0} цифр", timestampthree.ToString().Length);
          Console.WriteLine("Формат: {0:#,##0}\n", timestampthree);
