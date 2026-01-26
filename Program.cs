@@ -36,12 +36,14 @@ namespace CurrentTime
          // Способ 3
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
 
          // Способ 4.
          Console.WriteLine("Способ 4. DateTime.UtcNow и вычитание эпохи");
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          DateTime thistime = DateTime.UtcNow;
          TimeSpan span = thistime - epoch;
