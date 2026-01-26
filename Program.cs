@@ -18,7 +18,7 @@ namespace CurrentTime
       static void CaseOne()
       {
          // Способ 1
-         Console.WriteLine("==========================================");
+         Console.WriteLine("========================================================");
          Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
          Console.WriteLine("Точное время в Unix timestamp в миллисекундах (13-значное число)");
 
