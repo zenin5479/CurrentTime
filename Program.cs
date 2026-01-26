@@ -26,7 +26,6 @@ namespace CurrentTime
          Console.WriteLine("Длина: {0} цифр", timestampone.ToString().Length);
          Console.WriteLine("Формат: {0:#,##0}\n", timestampone);
 
-
          // Способ 2
          DateTimeOffset timeoffset = DateTimeOffset.UtcNow;
          long timestamptwo = (timeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
