@@ -69,7 +69,7 @@ namespace CurrentTime
 
          // Конвертация обратно для проверки
          Console.WriteLine("========================================================");
-         Console.WriteLine("\nКонвертация обратно в DateTime:");
+         Console.WriteLine("Конвертация обратно в DateTime:");
          DateTimeOffset datefromtimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampone);
          Console.WriteLine("Из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", datefromtimestamp);
       }
