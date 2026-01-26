@@ -27,10 +27,10 @@ namespace CurrentTime
 
          // Способ 2
          Console.WriteLine("========================================================");
-
+         Console.WriteLine("Способ 2 (Ручной расчет через Ticks):");
          DateTimeOffset timeoffset = DateTimeOffset.UtcNow;
          long timestamptwo = (timeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
-         Console.WriteLine("Способ 2 (Ручной расчет через Ticks):");
+
          Console.WriteLine("Результат: {0}", timestamptwo);
          Console.WriteLine("Длина: {0} цифр", timestamptwo.ToString().Length);
          Console.WriteLine("Формат: {0:#,##0}\n", timestamptwo);
