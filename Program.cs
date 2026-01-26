@@ -40,6 +40,20 @@ namespace CurrentTime
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
 
+         // Способ 4. Через DateTime.UtcNow и вычитание эпохи
+         Console.WriteLine("2. Через DateTime.UtcNow и вычитание эпохи");
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         DateTime thistime = DateTime.UtcNow;
+         TimeSpan span = thistime - epoch;
+         long timestamputcnow = (long)span.TotalMilliseconds;
+         Console.WriteLine("Unix timestamp (ms): {0}", timestamputcnow);
+
+         // Способ 5. Через DateTimeOffset с явным преобразованием
+         Console.WriteLine("3. Через DateTimeOffset с явным преобразованием");
+         DateTimeOffset rightnow = DateTimeOffset.UtcNow;
+         long timestampoffsetconvert = rightnow.ToUnixTimeMilliseconds();
+         Console.WriteLine("Unix timestamp (ms): {0}", timestampoffsetconvert);
+
          // Проверка эквивалентности
          Console.WriteLine("Проверка эквивалентности:");
          Console.WriteLine("Способ 1 == Способ 2: {0}", timestampone == timestamptwo);
