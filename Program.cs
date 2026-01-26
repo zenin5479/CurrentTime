@@ -6,7 +6,7 @@ namespace CurrentTime
    {
       static void Main()
       {
-         Console.WriteLine("Точное время в Unix timestamp в миллисекундах (13-значное число)");
+         Console.WriteLine("Определение точного времени в миллисекундах (13-значное число)");
          CaseOne();
          Console.WriteLine();
          CaseTwo();
