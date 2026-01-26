@@ -22,8 +22,8 @@ namespace CurrentTime
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         long timestampoffset = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampoffset);
+         long timestampone = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         Console.WriteLine("Unix timestamp (ms): {0}", timestampone);
 
          // Способ 2
          Console.WriteLine("========================================================");
@@ -44,12 +44,12 @@ namespace CurrentTime
 
          // Проверка эквивалентности
          Console.WriteLine("Проверка эквивалентности:");
-         Console.WriteLine("Способ 1 == Способ 2: {0}", timestampoffset == timestamptwo);
+         Console.WriteLine("Способ 1 == Способ 2: {0}", timestampone == timestamptwo);
          Console.WriteLine("Способ 2 == Способ 3: {0}", timestamptwo == timestampthree);
 
          // Конвертация обратно для проверки
          Console.WriteLine("\nКонвертация обратно в DateTime:");
-         DateTimeOffset datefromtimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
+         DateTimeOffset datefromtimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampone);
          Console.WriteLine("Из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", datefromtimestamp);
       }
 
