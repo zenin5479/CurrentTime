@@ -8,10 +8,7 @@ namespace CurrentTime
       {
          Console.WriteLine("Определение точного времени в миллисекундах (13-значное число)");
          CaseOne();
-         Console.WriteLine();
-         CaseTwo();
-         Console.WriteLine();
-
+         
          Console.ReadKey();
       }
 
