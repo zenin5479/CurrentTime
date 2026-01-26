@@ -52,6 +52,7 @@ namespace CurrentTime
 
          // Способ 5.
          Console.WriteLine("Способ 5. Через DateTimeOffset с явным преобразованием");
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTimeOffset rightnow = DateTimeOffset.UtcNow;
          long timestampfive = rightnow.ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampfive);
