@@ -31,11 +31,8 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTimeOffset timeoffset = DateTimeOffset.UtcNow;
          long timestamptwo = (timeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampoffset);
+         Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
-         Console.WriteLine("Результат: {0}", timestamptwo);
-         Console.WriteLine("Длина: {0} цифр", timestamptwo.ToString().Length);
-         Console.WriteLine("Формат: {0:#,##0}\n", timestamptwo);
 
          // Способ 3
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
