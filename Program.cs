@@ -73,30 +73,5 @@ namespace CurrentTime
          DateTimeOffset datefromtimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampone);
          Console.WriteLine("Из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", datefromtimestamp);
       }
-
-      // Точное время в Unix‑timestamp в миллисекундах (13‑значное число)
-      static void CaseTwo()
-      {
-         Console.WriteLine("Точное время в Unix timestamp в миллисекундах (13-значное число)");
-
-         // 1. Через DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-         Console.WriteLine("1. Через DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
-         long timestampoffset = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampoffset);
-
-         // 2. Через DateTime.UtcNow и вычитание эпохи
-         Console.WriteLine("2. Через DateTime.UtcNow и вычитание эпохи");
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         DateTime thistime = DateTime.UtcNow;
-         TimeSpan span = thistime - epoch;
-         long timestamputcnow = (long)span.TotalMilliseconds;
-         Console.WriteLine("Unix timestamp (ms): {0}", timestamputcnow);
-
-         // 3. Через DateTimeOffset с явным преобразованием
-         Console.WriteLine("3. Через DateTimeOffset с явным преобразованием");
-         DateTimeOffset rightnow = DateTimeOffset.UtcNow;
-         long timestampoffsetconvert = rightnow.ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampoffsetconvert);
-      }
    }
 }
