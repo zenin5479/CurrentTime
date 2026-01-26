@@ -22,15 +22,15 @@ namespace CurrentTime
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         long timestampoffset = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         long timestampoffset = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampoffset);
 
          // Способ 2
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 2. Ручной расчет через Ticks");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         DateTimeOffset dateTimeOffset = DateTimeOffset.UtcNow;
-         long timestamptwo = (dateTimeOffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
+         DateTimeOffset datetimeoffset = DateTimeOffset.UtcNow;
+         long timestamptwo = (datetimeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
          Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
 
