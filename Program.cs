@@ -38,8 +38,7 @@ namespace CurrentTime
          Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
-         
+         Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
 
          // Проверка эквивалентности
          Console.WriteLine("Проверка эквивалентности:");
