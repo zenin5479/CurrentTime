@@ -33,7 +33,6 @@ namespace CurrentTime
          long timestamptwo = (datetimeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
          Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
-
          // Способ 3
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
          long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
