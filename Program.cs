@@ -10,8 +10,8 @@ namespace CurrentTime
          // Способ 1
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         long timestampone = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
+         long timestampone = DateTimeOffset.Now.ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampone);
 
          // Способ 2
