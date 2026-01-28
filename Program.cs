@@ -6,7 +6,7 @@ namespace CurrentTime
    {
       static void Main()
       {
-         Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
+         Console.WriteLine("Определение точного времени в миллисекундах (13-значное число)");
          // Способ 1
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
