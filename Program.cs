@@ -33,7 +33,7 @@ namespace CurrentTime
          // Способ 4
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 4. DateTime.Now и вычитание эпохи");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          DateTime thistime = DateTime.UtcNow;
          TimeSpan span = thistime - epoch;
