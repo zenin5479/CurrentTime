@@ -34,7 +34,7 @@ namespace CurrentTime
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 4. DateTime.Now и вычитание эпохи");
          Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Unspecified);
          DateTime thistime = DateTime.Now;
          TimeSpan span = thistime - epoch;
          long timestampfour = (long)span.TotalMilliseconds;
