@@ -18,14 +18,27 @@ namespace CurrentTime
       
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
-         // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
-         // относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
-         // Из этого вопроса вы узнаете, как преобразовать метку времени Unix в DateTime.
-         // Затем объедините эти знания, чтобы создать следующий метод:
+      // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
+      // относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
+      // Из этого вопроса вы узнаете, как преобразовать метку времени Unix в DateTime.
+      // Затем объедините эти знания, чтобы создать следующий метод:
 
-         // Binance timestamp is milliseconds past epoch
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+      // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос.
+      // Подпись : Обеспечивает целостность и подлинность запроса, проверяя, что он был сгенерирован законным пользователем.
+      // Она может быть включена в строку запроса или тело запроса.
+      // В репозитории Binance на GitHub binance-signature - examples содержатся примеры, которые помогут пользователям научиться создавать подписи.
+
+      // Binance timestamp is milliseconds past epoch
+      DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
          return epoch.AddMilliseconds(binanceTimeStamp);
+      }
+
+      public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+      {
+         // Unix timestamp is seconds past epoch
+         DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+         dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+         return dateTime;
       }
 
       private static void CaseOne()
