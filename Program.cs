@@ -14,11 +14,23 @@ namespace CurrentTime
 
          Console.ReadKey();
       }
+      
+      
+      public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
+      {
+         // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
+         // относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
+         // Из этого вопроса вы узнаете, как преобразовать метку времени Unix в DateTime.
+         // Затем объедините эти знания, чтобы создать следующий метод:
+
+         // Binance timestamp is milliseconds past epoch
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+         return epoch.AddMilliseconds(binanceTimeStamp);
+      }
 
       private static void CaseOne()
       {
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
-
 
          // Пример Unix timestamp (13-значное число)
          long timestamp = 1769689078194;
