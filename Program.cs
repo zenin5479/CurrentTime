@@ -1,65 +1,94 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CurrentTime
 {
-   public class TimeUtils
+   public class Program
    {
-      // Метод 1: Простой Unix timestamp
-      public static long GetUnixTimestampMillis()
+      public static void Main()
       {
-         return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         CaseOne();
+         Console.WriteLine();
+         CaseTwo();
+         Console.WriteLine();
+         CaseThree();
+
+         Console.ReadKey();
       }
 
-      // Метод 2: Локальное время в Unix timestamp
-      public static long GetLocalUnixTimestampMillis()
+      private static void CaseOne()
       {
+         // Способ 1: DateTime с миллисекундами
+         DateTime currentTime = DateTime.Now;
+
+         // Конвертация в Unix timestamp
+         long timestamp = ToUnixTimestamp(currentTime);
+
+         Console.WriteLine($"Текущее время: {currentTime}");
+         Console.WriteLine($"Unix timestamp: {timestamp}");
+
+         // Способ 2: DateTimeOffset с учетом часового пояса
+         DateTimeOffset nowOffset = DateTimeOffset.Now;
+
+         // Получение текущего времени
+         DateTimeOffset current = DateTimeOffset.Now;
+
+         // Конвертация в Unix timestamp
+         long timestamp2 = ToUnixTimestamp(current);
+
+         Console.WriteLine($"Текущее время: {current}");
+         Console.WriteLine($"Unix timestamp: {timestamp2}");
+      }
+
+      // Базовый способ конвертации
+      public static long ToUnixTimestamp(DateTime date)
+      {
+         DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         TimeSpan timeSpan = date.ToUniversalTime() - unixStart;
+         return (long)(timeSpan.TotalMilliseconds);
+      }
+
+      // Использование DateTimeOffset
+      public static long ToUnixTimestamp(DateTimeOffset date)
+      {
+         DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
+         TimeSpan timeSpan = date.UtcDateTime - unixStart.UtcDateTime;
+         return (long)(timeSpan.TotalMilliseconds);
+      }
+
+      private static void CaseTwo()
+      {
+
+      }
+
+      private static void CaseThree()
+      {
+         // Способ 1: DateTimeOffset (рекомендуется)
+         DateTimeOffset now = DateTimeOffset.Now;
+         long timestamp1 = now.ToUnixTimeMilliseconds();
+
+         // Способ 2: Ручной расчет
          DateTime localNow = DateTime.Now;
-         DateTime localNowtm = DateTime.Now.ToUniversalTime();
          DateTime utcNow = localNow.ToUniversalTime();
-         Console.WriteLine(localNow);
-         Console.WriteLine(localNowtm);
-         Console.WriteLine(utcNow);
          DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         long timestamp2 = (long)(utcNow - unixEpoch).TotalMilliseconds;
 
-         return (long)(localNow - unixEpoch).TotalMilliseconds;
-      }
+         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
+         Console.WriteLine($"Локальное время: {now:yyyy-MM-dd HH:mm:ss.fff}");
+         Console.WriteLine($"Unix timestamp: {timestamp1}");
+         Console.WriteLine($"Длина: {timestamp1.ToString().Length} знаков");
 
-      // Метод 3: Высокая точность с использованием DateTimeOffset
-      public static (long timestamp, string readable) GetPreciseLocalTime()
-      {
-         DateTimeOffset localTime = DateTimeOffset.Now;
+         Console.WriteLine("\n=== Способ 2: Ручной расчет ===");
+         Console.WriteLine($"Локальное время: {localNow:yyyy-MM-dd HH:mm:ss.fff}");
+         Console.WriteLine($"Unix timestamp: {timestamp2}");
+         Console.WriteLine($"Длина: {timestamp2.ToString().Length} знаков");
 
-         // Unix timestamp
-         long timestamp = localTime.ToUnixTimeMilliseconds();
+         // Проверка совпадения
+         Console.WriteLine($"\nРезультаты совпадают: {timestamp1 == timestamp2}");
 
-         // Читаемый формат
-         string readable = localTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-
-         return (timestamp, readable);
-      }
-   }
-
-   // Использование
-   class Program
-   {
-      static void Main()
-      {
-         // Получение 13-значного Unix timestamp
-         long timestamp1 = TimeUtils.GetUnixTimestampMillis();
-         Console.WriteLine($"Unix timestamp (UTC): {timestamp1}");
-
-         // Локальное время в timestamp
-         long timestamp2 = TimeUtils.GetLocalUnixTimestampMillis();
-
-         Console.WriteLine($"Local time in timestamp: {timestamp2}");
-
-         // Полная информация
-         (long timestamp3, string readable) = TimeUtils.GetPreciseLocalTime();
-         Console.WriteLine($"Timestamp: {timestamp3}");
-         Console.WriteLine($"Readable: {readable}");
-
-         // Проверка, что число действительно 13-значное
-         Console.WriteLine($"Is 13-digit: {timestamp3.ToString().Length == 13}");
+         // Получение времени из timestamp обратно
+         DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp1);
+         Console.WriteLine($"\nВосстановлено из timestamp: {fromTimestamp:yyyy-MM-dd HH:mm:ss.fff}");
       }
    }
 }
