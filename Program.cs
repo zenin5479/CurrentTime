@@ -50,7 +50,7 @@ namespace CurrentTime
          Console.WriteLine($"Local time in timestamp: {timestamp2}");
 
          // Полная информация
-         var (timestamp3, readable) = TimeUtils.GetPreciseLocalTime();
+         (long timestamp3, string readable) = TimeUtils.GetPreciseLocalTime();
          Console.WriteLine($"Timestamp: {timestamp3}");
          Console.WriteLine($"Readable: {readable}");
 
