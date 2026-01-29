@@ -67,9 +67,9 @@ namespace CurrentTime
 
          Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampone);
          Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptwo);
-         Console.WriteLine("Способ 1 из timestamp в DateTime:: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampthree);
-         Console.WriteLine("Способ 1 из timestamp в DateTime:: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfour);
-         Console.WriteLine("Способ 1 из timestamp в DateTime:: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfive);
+         Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampthree);
+         Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfour);
+         Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfive);
 
          Console.ReadKey();
       }
