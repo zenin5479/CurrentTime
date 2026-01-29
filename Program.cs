@@ -1,77 +1,70 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CurrentTime
 {
-   internal class Program
+   public class TimeUtils
+   {
+      // Метод 1: Простой Unix timestamp
+      public static long GetUnixTimestampMillis()
+      {
+         return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+      }
+
+      // Метод 2: Локальное время в Unix timestamp
+      public static long GetLocalUnixTimestampMillis()
+      {
+         DateTime localNow = DateTime.Now;
+         DateTime utcNow = localNow.ToUniversalTime();
+         DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+         return (long)(utcNow - unixEpoch).TotalMilliseconds;
+      }
+
+      // Метод 3: Высокая точность с использованием DateTimeOffset
+      public static (long timestamp, string readable) GetPreciseLocalTime()
+      {
+         DateTimeOffset localTime = DateTimeOffset.Now;
+
+         // Unix timestamp
+         long timestamp = localTime.ToUnixTimeMilliseconds();
+
+         // Читаемый формат
+         string readable = localTime.ToString("yyyy-MM-dd HH:mm:ss.fff zzz");
+
+         return (timestamp, readable);
+      }
+
+      // Метод 4: Таймер с микросекундной точностью (для измерений)
+      public static long GetHighResolutionTime()
+      {
+         // Только для измерения интервалов!
+         long ticks = Stopwatch.GetTimestamp();
+         double seconds = (double)ticks / Stopwatch.Frequency;
+         return (long)(seconds * 1000);
+      }
+   }
+
+// Использование
+   class Program
    {
       static void Main()
       {
-         Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
-         // Способ 1
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         long timestampone = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampone);
+         // Получение 13-значного Unix timestamp
+         long timestamp1 = TimeUtils.GetUnixTimestampMillis();
+         Console.WriteLine($"Unix timestamp (UTC): {timestamp1}");
 
-         // Способ 2
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 2. Ручной расчет через Ticks");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         DateTimeOffset datetimeoffset = DateTimeOffset.UtcNow;
-         long timestamptwo = (datetimeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
-         Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
+         // Локальное время в timestamp
+         long timestamp2 = TimeUtils.GetLocalUnixTimestampMillis();
+         Console.WriteLine($"Local time in timestamp: {timestamp2}");
 
-         // Способ 3
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         DateTimeOffset specificdate = DateTimeOffset.UtcNow;
-         long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
+         // Полная информация
+         var (timestamp3, readable) = TimeUtils.GetPreciseLocalTime();
+         Console.WriteLine($"Timestamp: {timestamp3}");
+         Console.WriteLine($"Readable: {readable}");
 
-         // Способ 4
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 4. DateTime.UtcNow и вычитание эпохи");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         DateTime thistime = DateTime.UtcNow;
-         TimeSpan span = thistime - epoch;
-         long timestampfour = (long)span.TotalMilliseconds;
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampfour);
-
-         // Способ 5
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 5. DateTimeOffset с явным преобразованием");
-         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
-         DateTimeOffset rightnow = DateTimeOffset.UtcNow;
-         long timestampfive = rightnow.ToUnixTimeMilliseconds();
-         Console.WriteLine("Unix timestamp (ms): {0}", timestampfive);
-
-         // Проверка эквивалентности
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Проверка эквивалентности:");
-         Console.WriteLine("Способ 1 == Способ 2: {0}", timestampone == timestamptwo);
-         Console.WriteLine("Способ 2 == Способ 3: {0}", timestamptwo == timestampthree);
-         Console.WriteLine("Способ 3 == Способ 4: {0}", timestampthree == timestampfour);
-         Console.WriteLine("Способ 4 == Способ 5: {0}", timestampfour == timestampfive);
-
-         // Конвертация обратно для проверки
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Конвертация обратно в DateTime:");
-         DateTimeOffset datetotimestampone = DateTimeOffset.FromUnixTimeMilliseconds(timestampone);
-         DateTimeOffset datetotimestamptwo = DateTimeOffset.FromUnixTimeMilliseconds(timestamptwo);
-         DateTimeOffset datetotimestampthree = DateTimeOffset.FromUnixTimeMilliseconds(timestampthree);
-         DateTimeOffset datetotimestamptfour = DateTimeOffset.FromUnixTimeMilliseconds(timestampfour);
-         DateTimeOffset datetotimestamptfive = DateTimeOffset.FromUnixTimeMilliseconds(timestampfive);
-
-         Console.WriteLine("Способ 1 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampone);
-         Console.WriteLine("Способ 2 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptwo);
-         Console.WriteLine("Способ 3 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampthree);
-         Console.WriteLine("Способ 4 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfour);
-         Console.WriteLine("Способ 5 из timestamp в DateTime: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestamptfive);
-
-         Console.ReadKey();
+         // Проверка, что число действительно 13-значное
+         Console.WriteLine($"Is 13-digit: {timestamp3.ToString().Length == 13}");
       }
    }
 }
