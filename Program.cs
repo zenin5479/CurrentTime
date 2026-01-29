@@ -30,18 +30,9 @@ namespace CurrentTime
          long timestamp = localTime.ToUnixTimeMilliseconds();
 
          // Читаемый формат
-         string readable = localTime.ToString("yyyy-MM-dd HH:mm:ss.fff zzz");
+         string readable = localTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
          return (timestamp, readable);
-      }
-
-      // Метод 4: Таймер с микросекундной точностью (для измерений)
-      public static long GetHighResolutionTime()
-      {
-         // Только для измерения интервалов!
-         long ticks = Stopwatch.GetTimestamp();
-         double seconds = (double)ticks / Stopwatch.Frequency;
-         return (long)(seconds * 1000);
       }
    }
 
