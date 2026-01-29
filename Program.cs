@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace CurrentTime
 {
@@ -6,7 +7,16 @@ namespace CurrentTime
    {
       public static void Main()
       {
-         CaseOne();
+         // Russian Standard Time
+         // Russia Time Zone 3
+         ReadOnlyCollection<TimeZoneInfo> zones = TimeZoneInfo.GetSystemTimeZones();
+         Console.WriteLine("В местной системе есть {0} часовых поясов:", zones.Count);
+         foreach (TimeZoneInfo zone in zones)
+         {
+            Console.WriteLine(zone.Id);
+         }
+
+         //CaseOne();
          Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
@@ -17,7 +27,37 @@ namespace CurrentTime
 
       private static void CaseOne()
       {
+         // Пример Unix timestamp (13-значное число)
+         long timestamp = 1672531200000; // 1 января 2023 года
 
+         // Базовый метод
+         DateTime localTime = FromUnixTimestamp(timestamp);
+         Console.WriteLine("Базовое преобразование: {0}", localTime);
+
+         // С учетом часового пояса
+         DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russia/Moscow");
+         Console.WriteLine("С учетом часового пояса: {0}", moscowTime);
+      }
+
+      public static DateTime FromUnixTimestamp(long timestamp)
+      {
+         // Создаем начальную дату Unix эпохи
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+         // Конвертируем timestamp в локальное время
+         return epoch.AddMilliseconds(timestamp).ToLocalTime();
+      }
+
+      public static DateTime FromUnixTimestampWithTimeZone(long timestamp, string timeZoneId)
+      {
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         DateTime utcDateTime = epoch.AddMilliseconds(timestamp);
+
+         // Получаем нужный часовой пояс
+         TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+
+         // Конвертируем в локальное время
+         return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
       }
 
       private static void CaseTwo()
@@ -60,7 +100,7 @@ namespace CurrentTime
          TimeSpan timeSpan = date.UtcDateTime - unixStart.UtcDateTime;
          return (long)(timeSpan.TotalMilliseconds);
       }
-      
+
       private static void CaseThree()
       {
          // Способ 1: DateTimeOffset (рекомендуется)
