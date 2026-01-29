@@ -24,6 +24,7 @@ namespace CurrentTime
          DateTime localTime = FromUnixTimestamp(timestamp);
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", localTime);
+         Console.WriteLine("Время (в формате строки): {0}", localTime.ToString("yyyy-MM-dd HH:mm:ss.fff"));
 
          // С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
