@@ -15,7 +15,11 @@ namespace CurrentTime
       public static long GetLocalUnixTimestampMillis()
       {
          DateTime localNow = DateTime.Now;
+         long localNowtm = DateTime.Now.Millisecond;
          DateTime utcNow = localNow.ToUniversalTime();
+         Console.WriteLine(localNow);
+         Console.WriteLine(localNowtm);
+         Console.WriteLine(utcNow);
          DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
          return (long)(utcNow - unixEpoch).TotalMilliseconds;
@@ -47,6 +51,7 @@ namespace CurrentTime
 
          // Локальное время в timestamp
          long timestamp2 = TimeUtils.GetLocalUnixTimestampMillis();
+
          Console.WriteLine($"Local time in timestamp: {timestamp2}");
 
          // Полная информация
