@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace CurrentTime
 {
@@ -17,6 +16,11 @@ namespace CurrentTime
       }
 
       private static void CaseOne()
+      {
+
+      }
+
+      private static void CaseTwo()
       {
          // Способ 1: DateTime с миллисекундами
          DateTime timenow = DateTime.Now;
@@ -56,12 +60,7 @@ namespace CurrentTime
          TimeSpan timeSpan = date.UtcDateTime - unixStart.UtcDateTime;
          return (long)(timeSpan.TotalMilliseconds);
       }
-
-      private static void CaseTwo()
-      {
-
-      }
-
+      
       private static void CaseThree()
       {
          // Способ 1: DateTimeOffset (рекомендуется)
