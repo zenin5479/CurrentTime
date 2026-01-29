@@ -15,14 +15,14 @@ namespace CurrentTime
       public static long GetLocalUnixTimestampMillis()
       {
          DateTime localNow = DateTime.Now;
-         long localNowtm = DateTime.Now.Millisecond;
+         DateTime localNowtm = DateTime.Now.ToUniversalTime();
          DateTime utcNow = localNow.ToUniversalTime();
          Console.WriteLine(localNow);
          Console.WriteLine(localNowtm);
          Console.WriteLine(utcNow);
          DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-         return (long)(utcNow - unixEpoch).TotalMilliseconds;
+         return (long)(localNow - unixEpoch).TotalMilliseconds;
       }
 
       // Метод 3: Высокая точность с использованием DateTimeOffset
