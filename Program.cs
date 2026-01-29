@@ -19,24 +19,27 @@ namespace CurrentTime
       private static void CaseOne()
       {
          // Способ 1: DateTime с миллисекундами
-         DateTime currentTime = DateTime.Now;
+         DateTime timenow = DateTime.Now;
 
          // Конвертация в Unix timestamp
-         long timestamp = ToUnixTimestamp(currentTime);
-
-         Console.WriteLine($"Текущее время: {currentTime}");
+         long timestamp = ToUnixTimestamp(timenow);
+         Console.WriteLine($"Текущее время: {timenow}");
          Console.WriteLine($"Unix timestamp: {timestamp}");
 
-         // Способ 2: DateTimeOffset с учетом часового пояса
-         DateTimeOffset nowOffset = DateTimeOffset.Now;
+         Console.WriteLine($"Локальное время: {timenow:yyyy-MM-dd HH:mm:ss.fff}");
+         Console.WriteLine($"Unix timestamp: {timestamp}");
+         Console.WriteLine($"Длина: {timestamp.ToString().Length} знаков");
 
-         // Получение текущего времени
-         DateTimeOffset current = DateTimeOffset.Now;
+
+
+
+         // Способ 2: DateTimeOffset с учетом часового пояса
+         DateTimeOffset timeOffset = DateTimeOffset.Now;
 
          // Конвертация в Unix timestamp
-         long timestamp2 = ToUnixTimestamp(current);
+         long timestamp2 = ToUnixTimestamp(timeOffset);
 
-         Console.WriteLine($"Текущее время: {current}");
+         Console.WriteLine($"Текущее время: {timeOffset}");
          Console.WriteLine($"Unix timestamp: {timestamp2}");
       }
 
