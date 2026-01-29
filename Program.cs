@@ -63,7 +63,7 @@ namespace CurrentTime
          DateTimeOffset datetotimestamptwo = DateTimeOffset.FromUnixTimeMilliseconds(timestamptwo);
          DateTimeOffset datetotimestampthree = DateTimeOffset.FromUnixTimeMilliseconds(timestampthree);
          DateTimeOffset datetotimestamptfour = DateTimeOffset.FromUnixTimeMilliseconds(timestampfour);
-         DateTimeOffset datetotimestamptfive = DateTimeOffset.FromUnixTimeMilliseconds(timestampfour);
+         DateTimeOffset datetotimestamptfive = DateTimeOffset.FromUnixTimeMilliseconds(timestampfive);
 
          Console.WriteLine("Из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampone);
          Console.WriteLine("Из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", datetotimestampone);
