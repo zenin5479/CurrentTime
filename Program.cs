@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 
 namespace CurrentTime
 {
@@ -7,16 +6,7 @@ namespace CurrentTime
    {
       public static void Main()
       {
-         // Russian Standard Time
-         // Russia Time Zone 3
-         ReadOnlyCollection<TimeZoneInfo> zones = TimeZoneInfo.GetSystemTimeZones();
-         Console.WriteLine("В местной системе есть {0} часовых поясов:", zones.Count);
-         foreach (TimeZoneInfo zone in zones)
-         {
-            Console.WriteLine(zone.Id);
-         }
-
-         //CaseOne();
+         CaseOne();
          Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
@@ -28,15 +18,18 @@ namespace CurrentTime
       private static void CaseOne()
       {
          // Пример Unix timestamp (13-значное число)
-         long timestamp = 1672531200000; // 1 января 2023 года
+         long timestamp = 1769689078194;
 
          // Базовый метод
          DateTime localTime = FromUnixTimestamp(timestamp);
          Console.WriteLine("Базовое преобразование: {0}", localTime);
+         Console.WriteLine("Базовое преобразование с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", localTime);
 
          // С учетом часового пояса
-         DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russia/Moscow");
+         // Свойство TimeZoneInfo.Id - "Russian Standard Time"
+         DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russian Standard Time");
          Console.WriteLine("С учетом часового пояса: {0}", moscowTime);
+         Console.WriteLine("С учетом часового пояса с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", moscowTime);
       }
 
       public static DateTime FromUnixTimestamp(long timestamp)
