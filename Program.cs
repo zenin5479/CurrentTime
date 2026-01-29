@@ -6,36 +6,36 @@ namespace CurrentTime
    {
       static void Main()
       {
-         Console.WriteLine("Определение точного времени в миллисекундах (13-значное число)");
+         Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
          // Способ 1
          Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 1. DateTimeOffset.Now.ToUnixTimeMilliseconds()");
-         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         long timestampone = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+         Console.WriteLine("Способ 1. DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()");
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         long timestampone = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampone);
 
          // Способ 2
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 2. Ручной расчет через Ticks");
-         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         DateTimeOffset datetimeoffset = DateTimeOffset.Now;
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         DateTimeOffset datetimeoffset = DateTimeOffset.UtcNow;
          long timestamptwo = (datetimeoffset.Ticks - DateTimeOffset.UnixEpoch.Ticks) / TimeSpan.TicksPerMillisecond;
          Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
          // Способ 3
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
-         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         DateTimeOffset specificdate = DateTimeOffset.Now;
-         long timestampthree = new DateTimeOffset(specificdate.DateTime).ToUnixTimeMilliseconds();
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         DateTimeOffset specificdate = DateTimeOffset.UtcNow;
+         long timestampthree = new DateTimeOffset(specificdate.UtcDateTime).ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampthree);
 
          // Способ 4
          Console.WriteLine("========================================================");
-         Console.WriteLine("Способ 4. DateTime.Now и вычитание эпохи");
-         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Unspecified);
-         DateTime thistime = DateTime.Now;
+         Console.WriteLine("Способ 4. DateTime.UtcNow и вычитание эпохи");
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         DateTime thistime = DateTime.UtcNow;
          TimeSpan span = thistime - epoch;
          long timestampfour = (long)span.TotalMilliseconds;
          Console.WriteLine("Unix timestamp (ms): {0}", timestampfour);
@@ -43,8 +43,8 @@ namespace CurrentTime
          // Способ 5
          Console.WriteLine("========================================================");
          Console.WriteLine("Способ 5. DateTimeOffset с явным преобразованием");
-         Console.WriteLine("Текущее время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-         DateTimeOffset rightnow = DateTimeOffset.Now;
+         Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
+         DateTimeOffset rightnow = DateTimeOffset.UtcNow;
          long timestampfive = rightnow.ToUnixTimeMilliseconds();
          Console.WriteLine("Unix timestamp (ms): {0}", timestampfive);
 
