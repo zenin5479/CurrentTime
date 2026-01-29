@@ -15,7 +15,6 @@ namespace CurrentTime
          Console.ReadKey();
       }
       
-      
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
       // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
