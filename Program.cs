@@ -45,7 +45,7 @@ namespace CurrentTime
       }
    }
 
-// Использование
+   // Использование
    class Program
    {
       static void Main()
