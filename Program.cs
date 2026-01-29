@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
 
 namespace CurrentTime
 {
@@ -14,21 +21,60 @@ namespace CurrentTime
 
          Console.ReadKey();
       }
-      
-      public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
+
+      public async Task<string> SendSignedAsync(string requestUri, HttpMethod httpMethod, Dictionary<string, object> query = null, object content = null)
       {
-      // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
-      // относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
-      // Из этого вопроса вы узнаете, как преобразовать метку времени Unix в DateTime.
-      // Затем объедините эти знания, чтобы создать следующий метод:
+         StringBuilder queryStringBuilder = new StringBuilder();
 
-      // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос.
-      // Подпись : Обеспечивает целостность и подлинность запроса, проверяя, что он был сгенерирован законным пользователем.
-      // Она может быть включена в строку запроса или тело запроса.
-      // В репозитории Binance на GitHub binance-signature - examples содержатся примеры, которые помогут пользователям научиться создавать подписи.
+         if (!(query is null))
+         {
+            string queryParameterString = string.Join("&", query.Where(kvp => !string.IsNullOrWhiteSpace(kvp.Value?.ToString())).Select(kvp => string.Format("{0}={1}", kvp.Key, HttpUtility.UrlEncode(kvp.Value.ToString()))));
+            queryStringBuilder.Append(queryParameterString);
+         }
 
-      // Binance timestamp is milliseconds past epoch
-      DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+         if (queryStringBuilder.Length > 0)
+         {
+            queryStringBuilder.Append("&");
+         }
+
+         long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         queryStringBuilder.Append("timestamp=").Append(now);
+
+         string signature = SignatureHelper.Sign(queryStringBuilder.ToString(), this.apiSecret);
+         queryStringBuilder.Append("&signature=").Append(signature);
+
+         StringBuilder requestUriBuilder = new StringBuilder(requestUri);
+         requestUriBuilder.Append("?").Append(queryStringBuilder.ToString());
+
+         return await this.SendAsync(requestUriBuilder.ToString(), httpMethod, content);
+      }
+   
+
+   public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
+      {
+         // Из этого вопроса вы узнаете, что «[В API Binance] Все поля,
+         // относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
+         // Из этого вопроса вы узнаете, как преобразовать метку времени Unix в DateTime.
+         // Затем объедините эти знания, чтобы создать следующий метод:
+
+         // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос.
+         // Подпись : Обеспечивает целостность и подлинность запроса, проверяя, что он был сгенерирован законным пользователем.
+         // Она может быть включена в строку запроса или тело запроса.
+         // В репозитории Binance на GitHub binance-signature - examples содержатся примеры, которые помогут пользователям научиться создавать подписи.
+         //long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         //queryStringBuilder.Append("timestamp=").Append(now);
+
+         // Ответ сервера Binance
+         // Формат и данные
+         // Все ответы от REST API Binance Spot предоставляются в формате JSON.
+         // Данные упорядочены от самых старых к самым новым(в порядке возрастания),
+         // что позволяет пользователям обрабатывать данные в хронологическом порядке и обеспечивать согласованность
+         // при работе с информацией, актуальность которой зависит от времени.
+         // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах.
+
+
+         // Binance timestamp is milliseconds past epoch
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
 
