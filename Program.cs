@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 
 namespace CurrentTime
@@ -23,13 +24,16 @@ namespace CurrentTime
       public static void CaseFour()
       {
          long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+         Console.WriteLine(milliseconds);
 
          // 1. Получение текущего Timestamp
          // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         Console.WriteLine(timestamp);
          // Binance timestamp is milliseconds past epoch
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
+         Console.WriteLine(addMilliseconds.ToString(CultureInfo.InvariantCulture));
 
          // 2. Конвертация Timestamp из API в DateTime
          // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
