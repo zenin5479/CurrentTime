@@ -22,31 +22,12 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      public async Task<string> SendSignedAsync(string requestUri, HttpMethod httpMethod, Dictionary<string, object> query = null, object content = null)
+      public StringBuilder SendSignedAsync()
       {
          StringBuilder queryStringBuilder = new StringBuilder();
-
-         if (!(query is null))
-         {
-            string queryParameterString = string.Join("&", query.Where(kvp => !string.IsNullOrWhiteSpace(kvp.Value?.ToString())).Select(kvp => string.Format("{0}={1}", kvp.Key, HttpUtility.UrlEncode(kvp.Value.ToString()))));
-            queryStringBuilder.Append(queryParameterString);
-         }
-
-         if (queryStringBuilder.Length > 0)
-         {
-            queryStringBuilder.Append("&");
-         }
-
          long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          queryStringBuilder.Append("timestamp=").Append(now);
-
-         string signature = SignatureHelper.Sign(queryStringBuilder.ToString(), this.apiSecret);
-         queryStringBuilder.Append("&signature=").Append(signature);
-
-         StringBuilder requestUriBuilder = new StringBuilder(requestUri);
-         requestUriBuilder.Append("?").Append(queryStringBuilder.ToString());
-
-         return await this.SendAsync(requestUriBuilder.ToString(), httpMethod, content);
+         return queryStringBuilder;
       }
    
 
