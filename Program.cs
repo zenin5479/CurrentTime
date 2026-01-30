@@ -26,9 +26,6 @@ namespace CurrentTime
       {
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
 
-         long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-         Console.WriteLine(milliseconds);
-
          // 1. Получение текущего Timestamp
          // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
@@ -38,6 +35,8 @@ namespace CurrentTime
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
 
+         
+         
          // 2. Конвертация Timestamp из API в DateTime
          // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
 
