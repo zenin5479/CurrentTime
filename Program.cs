@@ -46,7 +46,9 @@ namespace CurrentTime
          // Она может быть включена в строку запроса или тело запроса
          StringBuilder queryStringBuilder = new StringBuilder();
          long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         queryStringBuilder.Append("timestamp=").Append(now);
+         Console.WriteLine(queryStringBuilder);
+         //queryStringBuilder.Append("timestamp=").Append(now);
+         //Console.WriteLine(queryStringBuilder);
 
          // Ответ сервера Binance
          // Все ответы от REST API Binance Spot предоставляются в формате JSON
