@@ -23,7 +23,7 @@ namespace CurrentTime
          return milliseconds.ToString();
       }
 
-      // Преобразование временных меток Binance в формат DateTime на C# 
+      // Преобразование временных меток Binance в формат DateTime
 
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
