@@ -30,22 +30,14 @@ namespace CurrentTime
          // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine(timestamp);
-         // Binance timestamp is milliseconds past epoch
+         
+         // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
-
          
-         
-         // 2. Конвертация Timestamp из API в DateTime
-         // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
+         Console.WriteLine(addMilliseconds);
 
-         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
-         Console.WriteLine(dateTime);
-      }
-
-      public static void CaseFive()
-      {
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
 
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
@@ -61,11 +53,21 @@ namespace CurrentTime
          // Все ответы от REST API Binance Spot предоставляются в формате JSON
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах
 
-         // Временная метка Binance - это миллисекунды прошедшей эпохи
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-         DateTime addMilliseconds = epoch.AddMilliseconds(now);
-         Console.WriteLine(addMilliseconds);
+         
 
+
+
+         
+         // 2. Конвертация Timestamp из API в DateTime
+         // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
+
+         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
+         Console.WriteLine(dateTime);
+      }
+
+      public static void CaseFive()
+      {
+         
          // Преобразовать метку времени Unix в DateTime
       }
 
