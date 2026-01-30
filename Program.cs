@@ -12,6 +12,8 @@ namespace CurrentTime
          CaseTwo();
          Console.WriteLine();
          CaseThree();
+         Console.WriteLine();
+         CaseFour();
 
          Console.ReadKey();
       }
@@ -26,7 +28,7 @@ namespace CurrentTime
          // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          // Binance timestamp is milliseconds past epoch
-         var epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
 
          // 2. Конвертация Timestamp из API в DateTime
