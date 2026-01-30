@@ -30,7 +30,7 @@ namespace CurrentTime
          // преобразовать метку времени Unix в DateTime
 
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
-         // Она может быть включена в строку запроса или тело запроса.
+         // Она может быть включена в строку запроса или тело запроса
          StringBuilder queryStringBuilder = new StringBuilder();
          long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          queryStringBuilder.Append("timestamp=").Append(now);
@@ -43,7 +43,7 @@ namespace CurrentTime
          // при работе с информацией, актуальность которой зависит от времени.
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах.
 
-         // Binance timestamp is milliseconds past epoch
+         // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
