@@ -24,8 +24,6 @@ namespace CurrentTime
       // Преобразование временных меток Binance в формат DateTime
       public static void CaseFour()
       {
-         //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
-
          // 1. Получение текущего Timestamp
          //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
