@@ -14,6 +14,8 @@ namespace CurrentTime
          CaseThree();
          Console.WriteLine();
          CaseFour();
+         Console.WriteLine();
+         CaseFive();
 
          Console.ReadKey();
       }
@@ -43,7 +45,7 @@ namespace CurrentTime
          Console.WriteLine(dateTime);
       }
 
-      public static void BinanceTimeStampToUtcDateTime()
+      public static void CaseFive()
       {
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
 
