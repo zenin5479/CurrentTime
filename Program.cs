@@ -39,7 +39,7 @@ namespace CurrentTime
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(binanceTimestamp).UtcDateTime;
       }
 
-      public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
+      public static void BinanceTimeStampToUtcDateTime()
       {
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
@@ -56,7 +56,8 @@ namespace CurrentTime
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-         return epoch.AddMilliseconds(binanceTimeStamp);
+         DateTime addMilliseconds = epoch.AddMilliseconds(queryStringBuilder);
+         Console.WriteLine(addMilliseconds);
 
          // Преобразовать метку времени Unix в DateTime
       }
