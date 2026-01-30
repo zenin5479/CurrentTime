@@ -40,7 +40,7 @@ namespace CurrentTime
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах
 
          // 2. Конвертация Timestamp из API в DateTime
-         // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
+         // Если вы получили данные от API (например, время закрытия свечи), их можно перевести в привычный формат:
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
          Console.WriteLine(dateTime);
 
@@ -48,21 +48,7 @@ namespace CurrentTime
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
-
-         Console.WriteLine(addMilliseconds);
-
-
-
-
-
-
-
-
-
-
-
-
-      }
+         }
 
       public static void CaseFive()
       {
