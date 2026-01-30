@@ -48,14 +48,6 @@ namespace CurrentTime
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
 
-      public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
-      {
-         // Временная метка Unix - это секунды прошедшей эпохи
-         DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-         dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-         return dateTime;
-      }
-
       private static void CaseOne()
       {
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
