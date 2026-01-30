@@ -42,14 +42,14 @@ namespace CurrentTime
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
          Console.WriteLine(dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", dateTime);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", addMilliseconds);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
 
       }
 
