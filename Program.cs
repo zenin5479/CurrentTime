@@ -29,10 +29,11 @@ namespace CurrentTime
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
          // преобразовать метку времени Unix в DateTime.
 
-         // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос.
-         // Подпись : Обеспечивает целостность и подлинность запроса, проверяя, что он был сгенерирован законным пользователем.
-         // Она может быть включена в строку запроса или тело запроса.
-         // В репозитории Binance на GitHub binance-signature - examples содержатся примеры, которые помогут пользователям научиться создавать подписи.
+         // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
+         StringBuilder queryStringBuilder = new StringBuilder();
+         long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         queryStringBuilder.Append("timestamp=").Append(now);
+        
          //long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          //queryStringBuilder.Append("timestamp=").Append(now);
 
