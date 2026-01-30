@@ -24,7 +24,6 @@ namespace CurrentTime
          return queryStringBuilder;
       }
 
-
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
