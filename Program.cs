@@ -140,32 +140,29 @@ namespace CurrentTime
 
       private static void CaseThree()
       {
+         Console.WriteLine("Определение точного локального времени в миллисекундах");
          // Способ 1: DateTimeOffset (рекомендуется)
          DateTimeOffset datenow = DateTimeOffset.Now;
          long timestampoffset = datenow.ToUnixTimeMilliseconds();
-
+         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datenow);
+         Console.WriteLine("Unix timestamp: {0}", timestampoffset);
+        
          // Способ 2: Ручной расчет
          DateTime datelocalnow = DateTime.Now;
          DateTime universalnow = datelocalnow.ToUniversalTime();
          DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          long timestampepoch = (long)(universalnow - unixepoch).TotalMilliseconds;
-
-         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datenow);
-         Console.WriteLine("Unix timestamp: {0}", timestampoffset);
-         Console.WriteLine("Длина: {0} знаков", timestampoffset.ToString().Length);
-
-         Console.WriteLine("\n=== Способ 2: Ручной расчет ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datelocalnow);
+         Console.WriteLine("=== Способ 2: Ручной расчет ===");
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datelocalnow);
          Console.WriteLine("Unix timestamp: {0}", timestampepoch);
-         Console.WriteLine("Длина: {0} знаков", timestampepoch.ToString().Length);
 
          // Проверка совпадения
-         Console.WriteLine("\nРезультаты совпадают: {0}", timestampoffset == timestampepoch);
+         Console.WriteLine("Результаты совпадают: {0}", timestampoffset == timestampepoch);
 
          // Получение времени из timestamp обратно
          DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
-         Console.WriteLine("\nВосстановлено из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", fromTimestamp);
+         Console.WriteLine("Восстановлено из timestamp: {0:dd.MM.yyyy HH:mm:ss.fff}", fromTimestamp);
       }
    }
 }
