@@ -17,10 +17,13 @@ namespace CurrentTime
       }
 
       // Генерация метки времени
-      private static string GetTimestamp()
+      private static void GetTimestamp()
       {
          long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-         return milliseconds.ToString();
+
+         // 1. Получение текущего Timestamp
+         // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
+         long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
       }
 
       // Преобразование временных меток Binance в формат DateTime
@@ -31,9 +34,7 @@ namespace CurrentTime
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
 
-      // 1. Получение текущего Timestamp
-      // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
-      // long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+
 
       // 2. Конвертация Timestamp из API в DateTime
       // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
