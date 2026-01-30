@@ -20,7 +20,7 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      // Генерация метки времени
+      // Генерация метки времени Binance
       // Преобразование временных меток Binance в формат DateTime
       public static void CaseFour()
       {
@@ -50,7 +50,6 @@ namespace CurrentTime
          Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
-
       }
 
       public static void CaseFive()
