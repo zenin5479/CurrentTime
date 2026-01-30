@@ -25,6 +25,13 @@ namespace CurrentTime
 
       // Преобразование временных меток Binance в формат DateTime
 
+      public static DateTime BinanceTimeStampToDateTime(double binanceTimeStamp)
+      {
+         // Binance timestamp is milliseconds past epoch
+         var epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+         return epoch.AddMilliseconds(binanceTimeStamp);
+      }
+
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
