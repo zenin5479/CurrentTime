@@ -142,7 +142,7 @@ namespace CurrentTime
       {
          // Способ 1: DateTimeOffset (рекомендуется)
          DateTimeOffset now = DateTimeOffset.Now;
-         long timestamp1 = now.ToUnixTimeMilliseconds();
+         long timestampoffset = now.ToUnixTimeMilliseconds();
 
          // Способ 2: Ручной расчет
          DateTime localNow = DateTime.Now;
@@ -152,8 +152,8 @@ namespace CurrentTime
 
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
          Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", now);
-         Console.WriteLine("Unix timestamp: {0}", timestamp1);
-         Console.WriteLine("Длина: {0} знаков", timestamp1.ToString().Length);
+         Console.WriteLine("Unix timestamp: {0}", timestampoffset);
+         Console.WriteLine("Длина: {0} знаков", timestampoffset.ToString().Length);
 
          Console.WriteLine("\n=== Способ 2: Ручной расчет ===");
          Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", localNow);
@@ -161,10 +161,10 @@ namespace CurrentTime
          Console.WriteLine("Длина: {0} знаков", timestamp2.ToString().Length);
 
          // Проверка совпадения
-         Console.WriteLine("\nРезультаты совпадают: {0}", timestamp1 == timestamp2);
+         Console.WriteLine("\nРезультаты совпадают: {0}", timestampoffset == timestamp2);
 
          // Получение времени из timestamp обратно
-         DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp1);
+         DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
          Console.WriteLine("\nВосстановлено из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", fromTimestamp);
       }
    }
