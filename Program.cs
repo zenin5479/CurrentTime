@@ -146,9 +146,9 @@ namespace CurrentTime
 
          // Способ 2: Ручной расчет
          DateTime datelocalnow = DateTime.Now;
-         DateTime utcnow = datelocalnow.ToUniversalTime();
+         DateTime universalnow = datelocalnow.ToUniversalTime();
          DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         long timestampepoch = (long)(utcnow - unixepoch).TotalMilliseconds;
+         long timestampepoch = (long)(universalnow - unixepoch).TotalMilliseconds;
 
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
          Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datenow);
