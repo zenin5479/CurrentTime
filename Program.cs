@@ -32,12 +32,13 @@ namespace CurrentTime
          // Binance timestamp is milliseconds past epoch
          var epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(binanceTimeStamp);
+
+         // 2. Конвертация Timestamp из API в DateTime
+         // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
+
       }
 
 
-
-      // 2. Конвертация Timestamp из API в DateTime
-      // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
       public static DateTime ToDateTime(long binanceTimestamp)
       {
          return DateTimeOffset.FromUnixTimeMilliseconds(binanceTimestamp).UtcDateTime;
