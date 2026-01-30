@@ -24,7 +24,6 @@ namespace CurrentTime
       }
 
       // Преобразование временных меток Binance в формат DateTime
-
       public static DateTime BinanceTimeStampToDateTime(double binanceTimeStamp)
       {
          // Binance timestamp is milliseconds past epoch
