@@ -16,6 +16,7 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
+      // Генерация метки времени
       private static string GetTimestamp()
       {
          long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
