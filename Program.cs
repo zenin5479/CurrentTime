@@ -16,7 +16,7 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      public StringBuilder SendSignedAsync()
+      public StringBuilder SendSigned()
       {
          StringBuilder queryStringBuilder = new StringBuilder();
          long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
