@@ -16,13 +16,7 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      public StringBuilder SendSigned()
-      {
-         StringBuilder queryStringBuilder = new StringBuilder();
-         long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         queryStringBuilder.Append("timestamp=").Append(now);
-         return queryStringBuilder;
-      }
+
 
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
