@@ -26,7 +26,7 @@ namespace CurrentTime
          queryStringBuilder.Append("timestamp=").Append(now);
 
          // Ответ сервера Binance
-         // Все ответы от REST API Binance Spot предоставляются в формате JSON.
+         // Все ответы от REST API Binance Spot предоставляются в формате JSON
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах.
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
