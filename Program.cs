@@ -31,6 +31,11 @@ namespace CurrentTime
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
 
+      // 1. Получение текущего Timestamp
+      // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
+      // long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+
+
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
