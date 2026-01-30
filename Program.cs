@@ -104,7 +104,6 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp: {0}", timestamp);
          Console.WriteLine("Длина: {0} знаков", timestamp.ToString().Length);
 
-
          // Способ 2: DateTimeOffset с учетом часового пояса
          DateTimeOffset timeOffset = DateTimeOffset.Now;
 
