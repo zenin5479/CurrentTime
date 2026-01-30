@@ -33,7 +33,7 @@ namespace CurrentTime
          // Binance timestamp is milliseconds past epoch
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
-         Console.WriteLine(addMilliseconds.ToString(CultureInfo.InvariantCulture));
+         Console.WriteLine(addMilliseconds);
 
          // 2. Конвертация Timestamp из API в DateTime
          // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
