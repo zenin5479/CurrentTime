@@ -14,8 +14,6 @@ namespace CurrentTime
          CaseThree();
          Console.WriteLine();
          CaseFour();
-         Console.WriteLine();
-         CaseFive();
 
          Console.ReadKey();
       }
@@ -50,11 +48,6 @@ namespace CurrentTime
          Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
-      }
-
-      public static void CaseFive()
-      {
-
       }
 
       private static void CaseOne()
