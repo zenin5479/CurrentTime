@@ -37,7 +37,6 @@ namespace CurrentTime
       
       // 2. Конвертация Timestamp из API в DateTime
       // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
-
       public static DateTime ToDateTime(long binanceTimestamp)
       {
          return DateTimeOffset.FromUnixTimeMilliseconds(binanceTimestamp).UtcDateTime;
