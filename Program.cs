@@ -16,27 +16,28 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      // Генерация метки времени
       private static void GetTimestamp()
+      {
+
+      }
+
+      // Генерация метки времени
+      // Преобразование временных меток Binance в формат DateTime
+      public static void CaseFour()
       {
          long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
          // 1. Получение текущего Timestamp
          // Для отправки подписанных запросов (например, создание ордера) вам потребуется текущее время в миллисекундах:
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-      }
-
-      // Преобразование временных меток Binance в формат DateTime
-      public static void BinanceTimeStampToDateTime(double binanceTimeStamp)
-      {
          // Binance timestamp is milliseconds past epoch
          var epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-         DateTime addMilliseconds = epoch.AddMilliseconds(binanceTimeStamp);
+         DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
 
          // 2. Конвертация Timestamp из API в DateTime
          // Если вы получили данные от API(например, время закрытия свечи), их можно перевести в привычный формат:
-         long binanceTimestamp = 1769689078194;
-         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(binanceTimestamp).UtcDateTime;
+
+         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
       }
 
       public static void BinanceTimeStampToUtcDateTime()
@@ -46,7 +47,7 @@ namespace CurrentTime
          // Она может быть включена в строку запроса или тело запроса
          StringBuilder queryStringBuilder = new StringBuilder();
          long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         Console.WriteLine(queryStringBuilder);
+         Console.WriteLine(now);
          //queryStringBuilder.Append("timestamp=").Append(now);
          //Console.WriteLine(queryStringBuilder);
 
@@ -56,7 +57,7 @@ namespace CurrentTime
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-         DateTime addMilliseconds = epoch.AddMilliseconds(queryStringBuilder);
+         DateTime addMilliseconds = epoch.AddMilliseconds(now);
          Console.WriteLine(addMilliseconds);
 
          // Преобразовать метку времени Unix в DateTime
