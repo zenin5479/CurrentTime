@@ -141,27 +141,27 @@ namespace CurrentTime
       private static void CaseThree()
       {
          // Способ 1: DateTimeOffset (рекомендуется)
-         DateTimeOffset now = DateTimeOffset.Now;
-         long timestampoffset = now.ToUnixTimeMilliseconds();
+         DateTimeOffset datenow = DateTimeOffset.Now;
+         long timestampoffset = datenow.ToUnixTimeMilliseconds();
 
          // Способ 2: Ручной расчет
-         DateTime localNow = DateTime.Now;
-         DateTime utcNow = localNow.ToUniversalTime();
-         DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         long timestamp2 = (long)(utcNow - unixEpoch).TotalMilliseconds;
+         DateTime datelocalnow = DateTime.Now;
+         DateTime utcnow = datelocalnow.ToUniversalTime();
+         DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         long timestampepoch = (long)(utcnow - unixepoch).TotalMilliseconds;
 
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", now);
+         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datenow);
          Console.WriteLine("Unix timestamp: {0}", timestampoffset);
          Console.WriteLine("Длина: {0} знаков", timestampoffset.ToString().Length);
 
          Console.WriteLine("\n=== Способ 2: Ручной расчет ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", localNow);
-         Console.WriteLine("Unix timestamp: {0}", timestamp2);
-         Console.WriteLine("Длина: {0} знаков", timestamp2.ToString().Length);
+         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datelocalnow);
+         Console.WriteLine("Unix timestamp: {0}", timestampepoch);
+         Console.WriteLine("Длина: {0} знаков", timestampepoch.ToString().Length);
 
          // Проверка совпадения
-         Console.WriteLine("\nРезультаты совпадают: {0}", timestampoffset == timestamp2);
+         Console.WriteLine("\nРезультаты совпадают: {0}", timestampoffset == timestampepoch);
 
          // Получение времени из timestamp обратно
          DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
