@@ -73,7 +73,7 @@ namespace CurrentTime
          //string timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + "000";
 
          // Пример Unix timestamp (13-значное число)
-         long timestamp = 1769689078194;
+         long timestamp = 1769775722433;
 
          // Базовый метод
          DateTime localTime = FromUnixTimestamp(timestamp);
