@@ -44,7 +44,7 @@ namespace CurrentTime
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах.
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          return epoch.AddMilliseconds(binanceTimeStamp);
       }
 
