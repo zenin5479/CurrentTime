@@ -26,8 +26,8 @@ namespace CurrentTime
 
       public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
-         //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
-         // преобразовать метку времени Unix в DateTime.
+         //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
+         // преобразовать метку времени Unix в DateTime
 
          // В репозитории Binance на GitHub binance-signature - examples содержатся примеры, которые помогут пользователям научиться создавать подписи.
          //long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
