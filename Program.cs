@@ -16,11 +16,6 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      private static void GetTimestamp()
-      {
-
-      }
-
       // Генерация метки времени
       // Преобразование временных меток Binance в формат DateTime
       public static void CaseFour()
