@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection.Emit;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace CurrentTime
 {
@@ -29,9 +23,9 @@ namespace CurrentTime
          queryStringBuilder.Append("timestamp=").Append(now);
          return queryStringBuilder;
       }
-   
 
-   public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
+
+      public static DateTime BinanceTimeStampToUtcDateTime(double binanceTimeStamp)
       {
          //В API Binance Все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах». (в стиле Unix)
          // преобразовать метку времени Unix в DateTime.
