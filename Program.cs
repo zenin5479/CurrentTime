@@ -100,7 +100,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее время: {0}", timenow);
          Console.WriteLine("Unix timestamp: {0}", timestamp);
 
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", timenow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", timenow);
          Console.WriteLine("Unix timestamp: {0}", timestamp);
          Console.WriteLine("Длина: {0} знаков", timestamp.ToString().Length);
 
