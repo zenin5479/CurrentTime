@@ -137,7 +137,7 @@ namespace CurrentTime
          DateTimeOffset datenow = DateTimeOffset.Now;
          long timestampoffset = datenow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datenow);
+         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datenow);
          Console.WriteLine("Unix timestamp: {0}", timestampoffset);
 
          // Способ 2: Ручной расчет
