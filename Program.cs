@@ -40,14 +40,14 @@ namespace CurrentTime
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
          Console.WriteLine(dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", dateTime);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
 
          // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", addMilliseconds);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
       }
 
       private static void CaseOne()
@@ -137,7 +137,7 @@ namespace CurrentTime
          DateTimeOffset datenow = DateTimeOffset.Now;
          long timestampoffset = datenow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datenow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datenow);
          Console.WriteLine("Unix timestamp: {0}", timestampoffset);
 
          // Способ 2: Ручной расчет
@@ -146,7 +146,7 @@ namespace CurrentTime
          DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          long timestampepoch = (long)(universalnow - unixepoch).TotalMilliseconds;
          Console.WriteLine("=== Способ 2: Ручной расчет ===");
-         Console.WriteLine("Локальное время: {0:yyyy-MM-dd HH:mm:ss.fff}", datelocalnow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datelocalnow);
          Console.WriteLine("Unix timestamp: {0}", timestampepoch);
 
          // Проверка совпадения
@@ -154,7 +154,7 @@ namespace CurrentTime
 
          // Получение времени из timestamp обратно
          DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
-         Console.WriteLine("Восстановлено из timestamp: {0:yyyy-MM-dd HH:mm:ss.fff}", fromTimestamp);
+         Console.WriteLine("Восстановлено из timestamp: {0:dd.MM.yyyy HH:mm:ss.fff}", fromTimestamp);
       }
    }
 }
