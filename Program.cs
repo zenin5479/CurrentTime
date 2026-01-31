@@ -47,7 +47,7 @@ namespace CurrentTime
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:yyyy-MM-dd HH:mm:ss.fff}", addMilliseconds);
       }
 
       private static void CaseOne()
