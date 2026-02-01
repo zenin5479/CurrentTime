@@ -73,8 +73,6 @@ namespace CurrentTime
 
          // Конвертируем в локальное время
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
-
-         //DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russian Standard Time");
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
       }
