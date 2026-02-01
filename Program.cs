@@ -66,17 +66,15 @@ namespace CurrentTime
 
          // 2. С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
-
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          DateTime utcDateTime = epoch.AddMilliseconds(timestamp);
 
          // Получаем нужный часовой пояс
-         TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+         TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
 
          // Конвертируем в локальное время
-         return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
+         TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
 
-         DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russian Standard Time");
+         //DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russian Standard Time");
          Console.WriteLine("С учетом часового пояса: {0}", moscowTime);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", moscowTime);
       }
