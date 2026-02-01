@@ -77,8 +77,6 @@ namespace CurrentTime
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
       }
 
-     
-
       private static void CaseTwo()
       {
          // Способ 1: DateTime с миллисекундами
