@@ -79,14 +79,7 @@ namespace CurrentTime
 
       public static DateTime FromUnixTimestampWithTimeZone(long timestamp, string timeZoneId)
       {
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         DateTime utcDateTime = epoch.AddMilliseconds(timestamp);
-
-         // Получаем нужный часовой пояс
-         TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
-
-         // Конвертируем в локальное время
-         return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
+        
       }
 
       private static void CaseTwo()
