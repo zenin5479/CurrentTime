@@ -77,10 +77,7 @@ namespace CurrentTime
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
       }
 
-      public static DateTime FromUnixTimestampWithTimeZone(long timestamp, string timeZoneId)
-      {
-        
-      }
+     
 
       private static void CaseTwo()
       {
