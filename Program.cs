@@ -71,8 +71,6 @@ namespace CurrentTime
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", moscowTime);
       }
 
-    
-
       public static DateTime FromUnixTimestampWithTimeZone(long timestamp, string timeZoneId)
       {
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
