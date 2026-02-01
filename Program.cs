@@ -64,7 +64,7 @@ namespace CurrentTime
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
 
-         // С учетом часового пояса
+         // 2. С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
          DateTime moscowTime = FromUnixTimestampWithTimeZone(timestamp, "Russian Standard Time");
          Console.WriteLine("С учетом часового пояса: {0}", moscowTime);
