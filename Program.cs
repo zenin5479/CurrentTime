@@ -17,18 +17,16 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      // Генерация метки времени Binance
-      // Преобразование временных меток Binance в формат DateTime
+      // Генерация метки времени
+      // Преобразование временных меток в формат DateTime
       public static void CaseFour()
       {
          // 1. Получение текущего Timestamp
-         //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Получение текущего Timestamp ===");
          Console.WriteLine("Timestamp: {0}", timestamp);
 
-         // 2. Конвертация Timestamp из API в DateTime
-         // Временная метка Binance - это миллисекунды прошедшей эпохи
+         // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Способ 1: DateTime ===");
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
