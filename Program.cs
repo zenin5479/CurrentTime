@@ -80,12 +80,12 @@ namespace CurrentTime
       private static void CaseTwo()
       {
          // Способ 1: DateTime с миллисекундами
-         DateTime DateTimeow = DateTime.Now;
+         DateTime dateTimeNow = DateTime.Now;
 
          // Конвертация в Unix timestamp
-         long timestamp = ToUnixTimestamp(DateTimeow);
-         Console.WriteLine("Текущее время: {0}", DateTimeow);
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", DateTimeow);
+         long timestamp = ToUnixTimestamp(dateTimeNow);
+         Console.WriteLine("Текущее время: {0}", dateTimeNow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Unix timestamp: {0}", timestamp);
          Console.WriteLine("Длина: {0} знаков", timestamp.ToString().Length);
 
