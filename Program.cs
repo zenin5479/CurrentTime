@@ -39,7 +39,7 @@ namespace CurrentTime
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
       }
 
-      private static void CaseTwo()
+      public static void CaseTwo()
       {
          Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
          Console.WriteLine("=== Получение текущего Timestamp через DateTime и TimeSpan ===");
@@ -85,7 +85,7 @@ namespace CurrentTime
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
       }
 
-      private static void CaseThree()
+      public static void CaseThree()
       {
          Console.WriteLine("Определение точного локального времени в миллисекундах");
          // Способ 1: DateTimeOffset (рекомендуется)
@@ -112,7 +112,7 @@ namespace CurrentTime
          Console.WriteLine("Восстановлено из timestamp: {0:dd.MM.yyyy HH:mm:ss.fff}", fromTimestamp);
       }
 
-      private static void CaseFour()
+      public static void CaseFour()
       {
          Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
          // Способ 1
