@@ -20,13 +20,14 @@ namespace CurrentTime
       public static void CaseFour()
       {
          Console.WriteLine("=== DateTime, DateTimeOffset ===");
-
          // 1. Получение текущего Timestamp
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-         Console.WriteLine("=== Получение текущего Timestamp ===");
+         Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset ===");
          Console.WriteLine("Timestamp: {0}", timestamp);
 
          // 2. Конвертация Timestamp в DateTime
+         Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
+
          Console.WriteLine("=== Способ 1: DateTime ===");
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
