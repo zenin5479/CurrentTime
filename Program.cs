@@ -17,8 +17,6 @@ namespace CurrentTime
          Console.ReadKey();
       }
 
-      // Генерация метки времени
-      // Преобразование временных меток в формат DateTime
       public static void CaseFour()
       {
          // 1. Получение текущего Timestamp
