@@ -29,11 +29,12 @@ namespace CurrentTime
          //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         Console.WriteLine("=== Получение текущего Timestamp ===");
          Console.WriteLine("Timestamp: {0}", timestamp);
 
          // 2. Конвертация Timestamp из API в DateTime
 
-
+         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
