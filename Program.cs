@@ -101,14 +101,6 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
       }
 
-      // Базовый способ конвертации
-      public static long ToUnixTimestamp(DateTime date)
-      {
-         DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         TimeSpan timeSpan = date.ToUniversalTime() - unixStart;
-         return (long)(timeSpan.TotalMilliseconds);
-      }
-
       // Использование DateTimeOffset
       public static long ToUnixTimestamp(DateTimeOffset date)
       {
