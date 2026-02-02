@@ -68,14 +68,18 @@ namespace CurrentTime
 
       private static void CaseTwo()
       {
-
          Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
-
-         Console.WriteLine("=== Получение текущего Timestamp через DateTime, DateTimeOffset и TimeSpan ===");
-         // Способ 1: DateTime и TimeSpan с миллисекундами
+         Console.WriteLine("=== Получение текущего Timestamp через DateTime ===");
          DateTime dateTimeNow = DateTime.Now;
+         Console.WriteLine("Timestamp: {0}", dateTimeNow);
 
-         // Конвертация в Unix timestamp
+         Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset с учетом часового пояса ===");
+         DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
+         Console.WriteLine("Timestamp: {0}", dateTimeOffset);
+
+         Console.WriteLine("=== Получение текущего Timestamp через DateTime ===");
+           // Способ 1: DateTime и TimeSpan // Конвертация в Unix timestamp
+
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
          long timeStampOne = (long)(timeSpanOne.TotalMilliseconds);
@@ -83,10 +87,8 @@ namespace CurrentTime
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Unix timestamp: {0}", timeStampOne);
 
-         // Способ 2: DateTimeOffset и TimeSpan с учетом часового пояса
-         DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
 
-         // Конвертация в Unix timestamp
+         // Конвертация в Unix timestamp  // Способ 2: DateTimeOffset и TimeSpan с учетом часового пояса
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
          TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
          long timestampTwo = (long)(timeSpanTwo.TotalMilliseconds);
