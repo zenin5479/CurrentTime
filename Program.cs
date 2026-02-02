@@ -40,7 +40,6 @@ namespace CurrentTime
          // Временная метка Binance - это миллисекунды прошедшей эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
-         Console.WriteLine(addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
       }
