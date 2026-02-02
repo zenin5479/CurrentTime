@@ -21,23 +21,19 @@ namespace CurrentTime
       // Преобразование временных меток Binance в формат DateTime
       public static void CaseFour()
       {
-          // Ответ сервера Binance
+         // Ответ сервера Binance
          // Все ответы от REST API Binance Spot предоставляются в формате JSON
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах
-         
+
          // 1. Получение текущего Timestamp
          //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Timestamp: {0}", timestamp);
 
-         
-        
-
          // 2. Конвертация Timestamp из API в DateTime
          // Если вы получили данные от API (например, время закрытия свечи), их можно перевести в привычный формат:
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
-         Console.WriteLine(dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
 
