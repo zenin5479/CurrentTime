@@ -79,6 +79,7 @@ namespace CurrentTime
 
       private static void CaseTwo()
       {
+         // Базовый способ конвертации
          // Способ 1: DateTime с миллисекундами
          DateTime dateTimeNow = DateTime.Now;
 
