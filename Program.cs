@@ -28,17 +28,19 @@ namespace CurrentTime
          Console.WriteLine("Timestamp: {0}", timestamp);
 
          // 2. Конвертация Timestamp из API в DateTime
-         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
-         Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
-
          // Временная метка Binance - это миллисекунды прошедшей эпохи
-         Console.WriteLine("=== Способ 2: DateTime ===");
+         Console.WriteLine("=== Способ 1: DateTime ===");
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
+
+         Console.WriteLine("=== Способ 2: DateTimeOffset ===");
+         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
+         Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
+
+         
       }
 
       private static void CaseOne()
