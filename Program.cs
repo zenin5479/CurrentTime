@@ -83,6 +83,10 @@ namespace CurrentTime
          DateTime dateTimeNow = DateTime.Now;
 
          // Конвертация в Unix timestamp
+         DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         TimeSpan timeSpan = dateTimeNow.ToUniversalTime() - unixStart;
+         long date = (long)(timeSpan.TotalMilliseconds);
+
          long timeStampOne = ToUnixTimestamp(dateTimeNow);
          Console.WriteLine("Текущее время: {0}", dateTimeNow);
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
