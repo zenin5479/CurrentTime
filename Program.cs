@@ -41,29 +41,6 @@ namespace CurrentTime
 
       private static void CaseFour()
       {
-         // Пример Unix timestamp (13-значное число)
-         long timestamp = 1769934086938;
-
-         // 1. Базовый метод
-         // Создаем начальную дату Unix эпохи
-         DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-         // Конвертируем timestamp в локальное время
-         DateTime localTime = epoch.AddMilliseconds(timestamp).ToLocalTime();
-         Console.WriteLine("Базовое преобразование: {0}", localTime);
-         Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
-
-         // 2. С учетом часового пояса
-         // Свойство TimeZoneInfo.Id - "Russian Standard Time"
-         DateTime utcDateTime = epoch.AddMilliseconds(timestamp);
-
-         // Получаем нужный часовой пояс
-         TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
-
-         // Конвертируем в локальное время
-         DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
-         Console.WriteLine("С учетом часового пояса: {0}", localZone);
-         Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
       }
 
       private static void CaseTwo()
