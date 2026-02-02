@@ -96,6 +96,7 @@ namespace CurrentTime
          long timestamp2 = ToUnixTimestamp(timeOffset);
 
          Console.WriteLine("Текущее время: {0}", timeOffset);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", timenow);
          Console.WriteLine("Unix timestamp: {0}", timestamp2);
       }
 
