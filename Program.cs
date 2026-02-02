@@ -87,7 +87,6 @@ namespace CurrentTime
          Console.WriteLine("Текущее время: {0}", dateTimeNow);
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Unix timestamp: {0}", timeStampOne);
-         Console.WriteLine("Длина: {0} знаков", timeStampOne.ToString().Length);
 
          // Способ 2: DateTimeOffset с учетом часового пояса
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
