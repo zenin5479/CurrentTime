@@ -6,13 +6,13 @@ namespace CurrentTime
    {
       public static void Main()
       {
-         CaseFour();
+         CaseOne();
          Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
          CaseThree();
          Console.WriteLine();
-         CaseOne();
+         CaseFour();
 
          Console.ReadKey();
       }
