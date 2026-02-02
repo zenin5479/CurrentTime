@@ -27,7 +27,6 @@ namespace CurrentTime
 
          // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
-
          Console.WriteLine("=== Способ 1: DateTime ===");
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestamp);
