@@ -90,12 +90,12 @@ namespace CurrentTime
          Console.WriteLine("Длина: {0} знаков", timestamp.ToString().Length);
 
          // Способ 2: DateTimeOffset с учетом часового пояса
-         DateTimeOffset timeOffset = DateTimeOffset.Now;
+         DateTimeOffset DateTimeOffset = DateTimeOffset.Now;
 
          // Конвертация в Unix timestamp
-         long timestamp2 = ToUnixTimestamp(timeOffset);
-         Console.WriteLine("Текущее время: {0}", timeOffset);
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", timeOffset);
+         long timestamp2 = ToUnixTimestamp(DateTimeOffset);
+         Console.WriteLine("Текущее время: {0}", DateTimeOffset);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", DateTimeOffset);
          Console.WriteLine("Unix timestamp: {0}", timestamp2);
          Console.WriteLine("Длина: {0} знаков", timestamp2.ToString().Length);
       }
