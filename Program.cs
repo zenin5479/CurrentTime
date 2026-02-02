@@ -96,7 +96,6 @@ namespace CurrentTime
          Console.WriteLine("Текущее время: {0}", dateTimeOffset);
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
-         Console.WriteLine("Длина: {0} знаков", timestampTwo.ToString().Length);
       }
 
       // Базовый способ конвертации
