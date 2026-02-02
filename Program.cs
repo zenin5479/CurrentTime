@@ -88,7 +88,7 @@ namespace CurrentTime
          long timestampTwo = (long)(timeSpanTwo.TotalMilliseconds);
          Console.WriteLine("Текущее время в DateTime: {0}", dateTimeOffset);
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
-         Console.WriteLine("Timestamp: {0}", timeStampOne);
+         Console.WriteLine("Timestamp: {0}", timestampTwo);
 
 
 
