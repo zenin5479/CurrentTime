@@ -97,8 +97,8 @@ namespace CurrentTime
 
          // Конвертация в Unix timestamp
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
-         TimeSpan timeSpan = date.UtcDateTime - unixStart.UtcDateTime;
-         return (long)(timeSpan.TotalMilliseconds);
+         TimeSpan timeSpan = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
+         long date = (long)(timeSpan.TotalMilliseconds);
 
          long timestampTwo = ToUnixTimestamp(dateTimeOffset);
          Console.WriteLine("Текущее время: {0}", dateTimeOffset);
