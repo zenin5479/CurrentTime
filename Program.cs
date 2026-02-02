@@ -19,6 +19,8 @@ namespace CurrentTime
 
       public static void CaseFour()
       {
+         Console.WriteLine("=== DateTime, DateTimeOffset ===");
+
          // 1. Получение текущего Timestamp
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Получение текущего Timestamp ===");
