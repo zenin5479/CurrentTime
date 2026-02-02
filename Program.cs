@@ -104,13 +104,6 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
       }
 
-      public static long ToUnixTimestamp(DateTimeOffset date)
-      {
-         DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
-         TimeSpan timeSpan = date.UtcDateTime - unixStart.UtcDateTime;
-         return (long)(timeSpan.TotalMilliseconds);
-      }
-
       private static void CaseThree()
       {
          Console.WriteLine("Определение точного локального времени в миллисекундах");
