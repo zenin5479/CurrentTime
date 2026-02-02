@@ -32,6 +32,8 @@ namespace CurrentTime
          Console.WriteLine("Timestamp: {0}", timestamp);
 
          // 2. Конвертация Timestamp из API в DateTime
+
+
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestamp).UtcDateTime;
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
