@@ -6,18 +6,18 @@ namespace CurrentTime
    {
       public static void Main()
       {
-         CaseOne();
+         CaseFour();
          Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
          CaseThree();
          Console.WriteLine();
-         CaseFour();
+         CaseOne();
 
          Console.ReadKey();
       }
 
-      public static void CaseFour()
+      public static void CaseOne()
       {
          Console.WriteLine("=== DateTime, DateTimeOffset ===");
          // 1. Получение текущего Timestamp
@@ -39,7 +39,7 @@ namespace CurrentTime
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
       }
 
-      private static void CaseOne()
+      private static void CaseFour()
       {
          // Пример Unix timestamp (13-значное число)
          long timestamp = 1769934086938;
