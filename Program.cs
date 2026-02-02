@@ -91,6 +91,7 @@ namespace CurrentTime
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Unix timestamp: {0}", timeStampOne);
 
+         // Использование DateTimeOffset
          // Способ 2: DateTimeOffset с учетом часового пояса
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
 
@@ -101,7 +102,6 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
       }
 
-      // Использование DateTimeOffset
       public static long ToUnixTimestamp(DateTimeOffset date)
       {
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
