@@ -78,15 +78,9 @@ namespace CurrentTime
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampOne);
 
-         Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset с учетом часового пояса ===");
+         Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset и TimeSpan с учетом часового пояса ===");
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
          Console.WriteLine("Timestamp: {0}", dateTimeOffset);
-
-         Console.WriteLine("=== Получение текущего Timestamp через DateTime ===");
-         // Способ 1: DateTime и TimeSpan // Конвертация в Unix timestamp
-
-
-
 
          // Конвертация в Unix timestamp  // Способ 2: DateTimeOffset и TimeSpan с учетом часового пояса
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
