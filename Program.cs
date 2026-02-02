@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace CurrentTime
 {
@@ -25,12 +24,9 @@ namespace CurrentTime
          // 1. Получение текущего Timestamp
          //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
-         // Она может быть включена в строку запроса или тело запроса
-         StringBuilder queryStringBuilder = new StringBuilder();
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine(timestamp);
-         queryStringBuilder.Append("timestamp=").Append(timestamp);
-         Console.WriteLine(queryStringBuilder);
+
          // Ответ сервера Binance
          // Все ответы от REST API Binance Spot предоставляются в формате JSON
          // Для обеспечения единообразия во всем API значения времени и метки времени указываются в миллисекундах
