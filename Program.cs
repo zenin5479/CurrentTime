@@ -74,7 +74,7 @@ namespace CurrentTime
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
          long timeStampOne = (long)(timeSpanOne.TotalMilliseconds);
-        Console.WriteLine("Текущее время в DateTime: {0}", dateTimeNow);
+         Console.WriteLine("Текущее время в DateTime: {0}", dateTimeNow);
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampOne);
 
@@ -86,6 +86,12 @@ namespace CurrentTime
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
          TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
          long timestampTwo = (long)(timeSpanTwo.TotalMilliseconds);
+         Console.WriteLine("Текущее время в DateTime: {0}", dateTimeOffset);
+         Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
+         Console.WriteLine("Timestamp: {0}", timeStampOne);
+
+
+
          Console.WriteLine("Текущее время: {0}", dateTimeOffset);
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
