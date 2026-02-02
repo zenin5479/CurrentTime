@@ -99,8 +99,6 @@ namespace CurrentTime
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
          TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
          long timestampTwo = (long)(timeSpanTwo.TotalMilliseconds);
-
-         //long timestampTwo = ToUnixTimestamp(dateTimeOffset);
          Console.WriteLine("Текущее время: {0}", dateTimeOffset);
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Unix timestamp: {0}", timestampTwo);
