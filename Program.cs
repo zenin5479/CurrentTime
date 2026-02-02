@@ -66,7 +66,9 @@ namespace CurrentTime
 
       private static void CaseTwo()
       {
-         // Способ 1: DateTime с миллисекундами
+         Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
+
+         // Способ 1: DateTime и TimeSpan с миллисекундами
          DateTime dateTimeNow = DateTime.Now;
 
          // Конвертация в Unix timestamp
@@ -77,7 +79,7 @@ namespace CurrentTime
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Unix timestamp: {0}", timeStampOne);
 
-         // Способ 2: DateTimeOffset с учетом часового пояса
+         // Способ 2: DateTimeOffset и TimeSpan с учетом часового пояса
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
 
          // Конвертация в Unix timestamp
