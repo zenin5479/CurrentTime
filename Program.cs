@@ -80,7 +80,6 @@ namespace CurrentTime
 
          Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset и TimeSpan с учетом часового пояса ===");
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
-         
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
          TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
          long timestampTwo = (long)(timeSpanTwo.TotalMilliseconds);
