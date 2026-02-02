@@ -25,6 +25,7 @@ namespace CurrentTime
          //В API Binance все поля, относящиеся ко времени и меткам времени, отображаются в миллисекундах» (в стиле Unix)
          // timestamp: Представляет собой метку времени в миллисекундах, когда был инициирован запрос
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         Console.WriteLine("Timestamp: {0}", dateTime);
          Console.WriteLine(timestamp);
 
          // Ответ сервера Binance
