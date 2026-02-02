@@ -69,16 +69,14 @@ namespace CurrentTime
       private static void CaseTwo()
       {
          Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
-         Console.WriteLine("=== Получение текущего Timestamp через DateTime ===");
+         Console.WriteLine("=== Получение текущего Timestamp через DateTime и TimeSpan ===");
          DateTime dateTimeNow = DateTime.Now;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
          long timeStampOne = (long)(timeSpanOne.TotalMilliseconds);
-         Console.WriteLine("Текущее время: {0}", dateTimeNow);
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
-         Console.WriteLine("Unix timestamp: {0}", timeStampOne);
-
-         Console.WriteLine("Timestamp: {0}", dateTimeNow);
+        Console.WriteLine("Текущее время в DateTime: {0}", dateTimeNow);
+         Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
+         Console.WriteLine("Timestamp: {0}", timeStampOne);
 
          Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset с учетом часового пояса ===");
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
