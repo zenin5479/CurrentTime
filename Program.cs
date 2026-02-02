@@ -94,10 +94,10 @@ namespace CurrentTime
 
          // Конвертация в Unix timestamp
          long timestamp2 = ToUnixTimestamp(timeOffset);
-
          Console.WriteLine("Текущее время: {0}", timeOffset);
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", timenow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", timeOffset);
          Console.WriteLine("Unix timestamp: {0}", timestamp2);
+         Console.WriteLine("Длина: {0} знаков", timestamp2.ToString().Length);
       }
 
       // Базовый способ конвертации
