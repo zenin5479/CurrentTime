@@ -68,6 +68,7 @@ namespace CurrentTime
 
       private static void CaseTwo()
       {
+         Console.WriteLine("=== Получение текущего Timestamp через DateTime, DateTimeOffset и TimeSpan ===");
          Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
 
          // Способ 1: DateTime и TimeSpan с миллисекундами
