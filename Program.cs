@@ -50,8 +50,6 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampTwo);
 
-         
-
          // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
