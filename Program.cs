@@ -19,6 +19,7 @@ namespace CurrentTime
 
       public static void CaseOne()
       {
+         Console.WriteLine("========================================================");
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
 
          Console.WriteLine("=== DateTime, DateTimeOffset ===");
