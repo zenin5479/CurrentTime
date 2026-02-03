@@ -60,7 +60,6 @@ namespace CurrentTime
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampTwo);
 
-         // Пример Unix timestamp (13-значное число)
          long timestamp = 1769934086938;
 
          // 1. Базовый метод
