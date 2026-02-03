@@ -60,9 +60,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampTwo);
 
-         long timestamp = 1769934086938;
-
-         // 1. Базовый метод
+        // 1. Базовый метод
          // Создаем начальную дату Unix эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
@@ -73,7 +71,7 @@ namespace CurrentTime
 
          // 2. С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
-         DateTime utcDateTime = epoch.AddMilliseconds(timestamp);
+         DateTime utcDateTime = epoch.AddMilliseconds(timestampTwo);
 
          // Получаем нужный часовой пояс
          TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
