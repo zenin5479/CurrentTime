@@ -22,7 +22,7 @@ namespace CurrentTime
          Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
 
          // 1. Получение Timestamp
-         Console.WriteLine("=================================================");
+         Console.WriteLine("========================================");
          Console.WriteLine("Получение Timestamp через DateTimeOffset");
          DateTimeOffset dateTimeOne = DateTimeOffset.UtcNow;
          long timestampOne = dateTimeOne.ToUnixTimeMilliseconds();
