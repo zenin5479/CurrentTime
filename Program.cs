@@ -67,7 +67,7 @@ namespace CurrentTime
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
          // Конвертируем timestamp в локальное время
-         DateTime localTime = epoch.AddMilliseconds(timestamp).ToLocalTime();
+         DateTime localTime = epoch.AddMilliseconds(timeStampOne).ToLocalTime();
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
 
