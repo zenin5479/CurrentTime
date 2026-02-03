@@ -12,7 +12,7 @@ namespace CurrentTime
          Console.WriteLine();
          CaseThree();
          Console.WriteLine();
-         //CaseFour();
+         CaseFour();
 
          Console.ReadKey();
       }
