@@ -55,13 +55,13 @@ namespace CurrentTime
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
          // Конвертируем timestamp в локальное время
-         DateTime localTime = epoch.AddMilliseconds(timeStampOne).ToLocalTime();
+         DateTime localTime = epoch.AddMilliseconds(timestampOne).ToLocalTime();
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
 
          // 2. С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
-         DateTime utcDateTime = epoch.AddMilliseconds(timestampTwo);
+         DateTime utcDateTime = epoch.AddMilliseconds(timestampThree);
 
          // Получаем нужный часовой пояс
          TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
@@ -70,8 +70,6 @@ namespace CurrentTime
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
-
-
 
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
