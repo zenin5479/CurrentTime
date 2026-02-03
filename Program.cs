@@ -24,7 +24,10 @@ namespace CurrentTime
          // 1. Получение текущего Timestamp
          Console.WriteLine("=================================================");
          Console.WriteLine("Получение Timestamp через DateTimeOffset");
-         long timestampOne = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+         DateTimeOffset dateTimeOne = DateTimeOffset.UtcNow;
+         long timestampOne = dateTimeOne.ToUnixTimeMilliseconds();
+         Console.WriteLine("Текущее время в DateTime: {0}", dateTimeOne);
+         Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOne);
          Console.WriteLine("Timestamp: {0}", timestampOne);
 
          Console.WriteLine("=================================================");
