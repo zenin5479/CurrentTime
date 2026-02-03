@@ -27,6 +27,9 @@ namespace CurrentTime
          Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset ===");
          Console.WriteLine("Timestamp: {0}", timestamp);
 
+
+
+
          // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
