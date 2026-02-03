@@ -20,8 +20,9 @@ namespace CurrentTime
       public static void CaseOne()
       {
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
-         Console.WriteLine("=================================================");
+         
          // 1. Получение текущего Timestamp
+         Console.WriteLine("=================================================");
          Console.WriteLine("Получение текущего Timestamp через DateTimeOffset");
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Timestamp: {0}", timestamp);
