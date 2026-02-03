@@ -30,6 +30,16 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOne);
          Console.WriteLine("Timestamp: {0}", timestampOne);
 
+         Console.WriteLine("===========================================================================");
+         Console.WriteLine("Получение Timestamp через DateTimeOffset и TimeSpan с учетом часового пояса");
+         DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
+         DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
+         TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
+         long timestampThree = (long)(timeSpanTwo.TotalMilliseconds);
+         Console.WriteLine("Текущее UTC время: {0}", dateTimeOffset);
+         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
+         Console.WriteLine("Timestamp: {0}", timestampThree);
+         
          Console.WriteLine("=============================================");
          Console.WriteLine("Получение Timestamp через DateTime и TimeSpan");
          DateTime dateTimeNow = DateTime.Now;
@@ -40,15 +50,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampTwo);
 
-         Console.WriteLine("===========================================================================");
-         Console.WriteLine("Получение Timestamp через DateTimeOffset и TimeSpan с учетом часового пояса");
-         DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
-         DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
-         TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
-         long timestampThree = (long)(timeSpanTwo.TotalMilliseconds);
-         Console.WriteLine("Текущее UTC время: {0}", dateTimeOffset);
-         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
-         Console.WriteLine("Timestamp: {0}", timestampThree);
+         
 
          // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
