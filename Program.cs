@@ -22,11 +22,10 @@ namespace CurrentTime
 
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
          Console.WriteLine("========================================================");
-
          Console.WriteLine("=== DateTime, DateTimeOffset ===");
          // 1. Получение текущего Timestamp
-         long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Получение текущего Timestamp через DateTimeOffset ===");
+         long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Timestamp: {0}", timestamp);
 
 
