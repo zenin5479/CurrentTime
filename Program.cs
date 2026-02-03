@@ -42,39 +42,14 @@ namespace CurrentTime
          
          Console.WriteLine("=============================================");
          Console.WriteLine("Получение Timestamp через DateTime и TimeSpan");
-         DateTime dateTimeNow = DateTime.Now;
+         DateTime dateTimeNow = DateTime.UtcNow;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
          long timeStampTwo = (long)(timeSpanOne.TotalMilliseconds);
          Console.WriteLine("Текущее UTC время: {0}", dateTimeNow);
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampTwo);
-
-
-         Console.WriteLine("Определение точного локального времени в миллисекундах");
-         // Способ 1: DateTimeOffset (рекомендуется)
-         DateTimeOffset datenow = DateTimeOffset.Now;
-         long timestampoffset = datenow.ToUnixTimeMilliseconds();
-         Console.WriteLine("=== Способ 1: DateTimeOffset ===");
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datenow);
-         Console.WriteLine("Unix timestamp: {0}", timestampoffset);
-
-         // Способ 2: Ручной расчет
-         DateTime datelocalnow = DateTime.Now;
-         DateTime universalnow = datelocalnow.ToUniversalTime();
-         DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         long timestampepoch = (long)(universalnow - unixepoch).TotalMilliseconds;
-         Console.WriteLine("=== Способ 2: Ручной расчет ===");
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datelocalnow);
-         Console.WriteLine("Unix timestamp: {0}", timestampepoch);
-
-         // Проверка совпадения
-         Console.WriteLine("Результаты совпадают: {0}", timestampoffset == timestampepoch);
-
-
-
-
-
+         
          // 2. Конвертация Timestamp в DateTime
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
@@ -130,6 +105,9 @@ namespace CurrentTime
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
+         
+
+
          Console.WriteLine("Определение точного локального времени в миллисекундах");
          // Способ 1: DateTimeOffset (рекомендуется)
          DateTimeOffset datenow = DateTimeOffset.Now;
