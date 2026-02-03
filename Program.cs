@@ -51,10 +51,11 @@ namespace CurrentTime
          Console.WriteLine("Timestamp: {0}", timeStampTwo);
 
          // 2. Конвертация Timestamp в DateTime
-         Console.WriteLine("=== Способ 2: DateTimeOffset ===");
+         Console.WriteLine("========================================================");
+         Console.WriteLine("Конвертация из Timestamp в DateTime через DateTimeOffset");
          DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestampOne).UtcDateTime;
-         Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
+         Console.WriteLine("Текущее UTC время: {0}", dateTime);
+         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
 
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
