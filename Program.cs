@@ -39,7 +39,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время: {0}", dateTimeOffset);
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampThree);
-         
+
          Console.WriteLine("=============================================");
          Console.WriteLine("Получение Timestamp через DateTime и TimeSpan");
          DateTime dateTimeNow = DateTime.UtcNow;
@@ -49,19 +49,19 @@ namespace CurrentTime
          Console.WriteLine("Текущее UTC время: {0}", dateTimeNow);
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampTwo);
-         
+
          // 2. Конвертация Timestamp в DateTime
+         Console.WriteLine("=== Способ 2: DateTimeOffset ===");
+         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestampOne).UtcDateTime;
+         Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
+         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
+
          Console.WriteLine("=== Конвертация Timestamp в DateTime ===");
          Console.WriteLine("=== Способ 1: DateTime ===");
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestampOne);
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
          Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
-
-         Console.WriteLine("=== Способ 2: DateTimeOffset ===");
-         DateTime dateTime = DateTimeOffset.FromUnixTimeMilliseconds(timestampOne).UtcDateTime;
-         Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", dateTime);
-         Console.WriteLine("Конвертация из Timestamp в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
       }
 
       public static void CaseTwo()
@@ -105,7 +105,7 @@ namespace CurrentTime
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
-         
+
 
 
          Console.WriteLine("Определение точного локального времени в миллисекундах");
