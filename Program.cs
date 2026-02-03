@@ -19,8 +19,9 @@ namespace CurrentTime
 
       public static void CaseOne()
       {
-         Console.WriteLine("========================================================");
+
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
+         Console.WriteLine("========================================================");
 
          Console.WriteLine("=== DateTime, DateTimeOffset ===");
          // 1. Получение текущего Timestamp
@@ -66,7 +67,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampTwo);
 
-        // 1. Базовый метод
+         // 1. Базовый метод
          // Создаем начальную дату Unix эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
