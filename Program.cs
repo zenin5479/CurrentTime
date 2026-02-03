@@ -12,25 +12,25 @@ namespace CurrentTime
          Console.WriteLine();
          CaseThree();
          Console.WriteLine();
-         CaseFour();
+         //CaseFour();
 
          Console.ReadKey();
       }
 
       public static void CaseOne()
       {
-         Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
-         
-         // 1. Получение текущего Timestamp
+         Console.WriteLine("Определение точного времени UTC в миллисекундах (13-значное число)");
+
+         // 1. Получение Timestamp
          Console.WriteLine("=================================================");
          Console.WriteLine("Получение Timestamp через DateTimeOffset");
          DateTimeOffset dateTimeOne = DateTimeOffset.UtcNow;
          long timestampOne = dateTimeOne.ToUnixTimeMilliseconds();
-         Console.WriteLine("Текущее время в DateTime: {0}", dateTimeOne);
-         Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOne);
+         Console.WriteLine("Текущее UTC время: {0}", dateTimeOne);
+         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOne);
          Console.WriteLine("Timestamp: {0}", timestampOne);
 
-         Console.WriteLine("=================================================");
+         Console.WriteLine("=============================================");
          Console.WriteLine("Получение Timestamp через DateTime и TimeSpan");
          DateTime dateTimeNow = DateTime.Now;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
