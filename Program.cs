@@ -46,7 +46,7 @@ namespace CurrentTime
          DateTimeOffset unixStart = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
          TimeSpan timeSpanTwo = dateTimeOffset.UtcDateTime - unixStart.UtcDateTime;
          long timestampThree = (long)(timeSpanTwo.TotalMilliseconds);
-         Console.WriteLine("Текущее время в DateTime: {0}", dateTimeOffset);
+         Console.WriteLine("Текущее UTC время: {0}", dateTimeOffset);
          Console.WriteLine("Текущее время в DateTime с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampThree);
 
