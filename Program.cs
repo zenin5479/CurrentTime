@@ -27,7 +27,7 @@ namespace CurrentTime
          long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
          Console.WriteLine("Timestamp: {0}", timestamp);
 
-         Console.WriteLine("=== Получение текущего Timestamp через DateTime и TimeSpan ===");
+         Console.WriteLine("Получение текущего Timestamp через DateTime и TimeSpan");
          DateTime dateTimeNow = DateTime.Now;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
