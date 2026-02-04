@@ -69,7 +69,6 @@ namespace CurrentTime
       {
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
          Console.WriteLine("========================================================");
-         Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
          Console.WriteLine("=== Получение текущего Timestamp через DateTime и TimeSpan ===");
          DateTime dateTimeNow = DateTime.Now;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
