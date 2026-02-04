@@ -62,7 +62,7 @@ namespace CurrentTime
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
          DateTime addMilliseconds = epoch.AddMilliseconds(timestampOne);
          Console.WriteLine("Текущее UTC время: {0}", addMilliseconds);
-         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTime);
+         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
 
 
          Console.WriteLine("Конвертация из Timestamp в DateTime: {0}", addMilliseconds);
