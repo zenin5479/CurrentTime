@@ -68,8 +68,8 @@ namespace CurrentTime
       public static void CaseTwo()
       {
          Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Получение Timestamp через DateTime и TimeSpan ===");
+         Console.WriteLine("=============================================");
+         Console.WriteLine("Получение Timestamp через DateTime и TimeSpan");
          DateTime dateTimeNow = DateTime.Now;
          DateTime unixStartOne = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
          TimeSpan timeSpanOne = dateTimeNow.ToUniversalTime() - unixStartOne;
