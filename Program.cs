@@ -107,8 +107,6 @@ namespace CurrentTime
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
 
-
-
          Console.WriteLine("Определение точного локального времени в миллисекундах");
          // Способ 1: DateTimeOffset (рекомендуется)
          DateTimeOffset datenow = DateTimeOffset.Now;
