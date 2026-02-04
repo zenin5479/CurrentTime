@@ -9,9 +9,9 @@ namespace CurrentTime
          //CaseOne();
          //Console.WriteLine();
          CaseTwo();
-         Console.WriteLine();
-         CaseThree();
-         Console.WriteLine();
+         //Console.WriteLine();
+         //CaseThree();
+         //Console.WriteLine();
          //CaseFour();
 
          Console.ReadKey();
