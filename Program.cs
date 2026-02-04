@@ -63,8 +63,6 @@ namespace CurrentTime
          DateTime addMilliseconds = epoch.AddMilliseconds(timestampOne);
          Console.WriteLine("Текущее UTC время: {0}", addMilliseconds);
          Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", addMilliseconds);
-
-
       }
 
       public static void CaseTwo()
