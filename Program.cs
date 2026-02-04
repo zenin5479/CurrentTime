@@ -6,8 +6,8 @@ namespace CurrentTime
    {
       public static void Main()
       {
-         CaseOne();
-         Console.WriteLine();
+         //CaseOne();
+         //Console.WriteLine();
          CaseTwo();
          Console.WriteLine();
          CaseThree();
