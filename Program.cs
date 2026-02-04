@@ -67,6 +67,7 @@ namespace CurrentTime
 
       public static void CaseTwo()
       {
+         Console.WriteLine("Определение точного локального времени в миллисекундах (13-значное число)");
          Console.WriteLine("=== DateTime, DateTimeOffset и TimeSpan ===");
          Console.WriteLine("=== Получение текущего Timestamp через DateTime и TimeSpan ===");
          DateTime dateTimeNow = DateTime.Now;
