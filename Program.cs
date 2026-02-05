@@ -96,6 +96,7 @@ namespace CurrentTime
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffsetTwo);
          Console.WriteLine("Timestamp: {0}", timeStampThree);
 
+
          DateTime datelocalnow = DateTime.Now;
          DateTime universalnow = datelocalnow.ToUniversalTime();
          DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
