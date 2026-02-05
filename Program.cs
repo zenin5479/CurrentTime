@@ -88,8 +88,11 @@ namespace CurrentTime
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffset);
          Console.WriteLine("Timestamp: {0}", timestampTwo);
 
+         Console.WriteLine("=============================================");
+         Console.WriteLine("Получение Timestamp через DateTimeOffset (рекомендуется)");
+
          Console.WriteLine("Определение точного локального времени в миллисекундах");
-         // Способ 1: DateTimeOffset (рекомендуется)
+         // Способ 1: DateTimeOffset 
          DateTimeOffset datenow = DateTimeOffset.Now;
          long timestampoffset = datenow.ToUnixTimeMilliseconds();
          Console.WriteLine("=== Способ 1: DateTimeOffset ===");
