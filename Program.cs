@@ -95,7 +95,6 @@ namespace CurrentTime
          // Конвертируем timestamp в локальное время
          Console.WriteLine("========================================================");
          Console.WriteLine("Конвертация из Timestamp в DateTime через DateTimeOffset");
-
          DateTime localTime = epoch.AddMilliseconds(timeStampOne).ToLocalTime();
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
