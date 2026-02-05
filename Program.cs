@@ -106,6 +106,9 @@ namespace CurrentTime
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
          Console.WriteLine("Unix timestamp: {0}", timestampEpoch);
 
+         Console.WriteLine("Текущее локальное время: {0}", dateNow);
+         Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
+         Console.WriteLine("Timestamp: {0}", timestampEpoch);
 
 
          // Проверка совпадения
