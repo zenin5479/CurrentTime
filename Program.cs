@@ -109,8 +109,6 @@ namespace CurrentTime
          // Конвертируем timestamp в локальное время
          // Создаем начальную дату Unix эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-        
          Console.WriteLine("=====================================================");
          Console.WriteLine("Конвертация из Timestamp в DateTime через ToLocalTime");
          DateTime localTime = epoch.AddMilliseconds(timeStampOne).ToLocalTime();
