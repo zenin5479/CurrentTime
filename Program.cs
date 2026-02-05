@@ -100,8 +100,8 @@ namespace CurrentTime
          Console.WriteLine("Получение Timestamp через DateTimeOffset (рекомендуется)");
          DateTime dateNow = DateTime.Now;
          DateTime universalNow = dateNow.ToUniversalTime();
-         DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         long timestampepoch = (long)(universalNow - unixepoch).TotalMilliseconds;
+         DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         long timestampepoch = (long)(universalNow - unixEpoch).TotalMilliseconds;
          Console.WriteLine("=== Способ 2: Ручной расчет ===");
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
          Console.WriteLine("Unix timestamp: {0}", timestampepoch);
