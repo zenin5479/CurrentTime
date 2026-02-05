@@ -97,17 +97,17 @@ namespace CurrentTime
          Console.WriteLine("Timestamp: {0}", timeStampThree);
 
          Console.WriteLine("========================================================");
-         Console.WriteLine("Получение Timestamp через DateTimeOffset (рекомендуется)");
+         Console.WriteLine("Получение Timestamp через DateTime.Now");
          DateTime dateNow = DateTime.Now;
          DateTime universalNow = dateNow.ToUniversalTime();
          DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-         long timestampepoch = (long)(universalNow - unixEpoch).TotalMilliseconds;
+         long timestampEpoch = (long)(universalNow - unixEpoch).TotalMilliseconds;
          Console.WriteLine("=== Способ 2: Ручной расчет ===");
          Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
-         Console.WriteLine("Unix timestamp: {0}", timestampepoch);
+         Console.WriteLine("Unix timestamp: {0}", timestampEpoch);
 
          // Проверка совпадения
-         Console.WriteLine("Результаты совпадают: {0}", timeStampThree == timestampepoch);
+         Console.WriteLine("Результаты совпадают: {0}", timeStampThree == timestampEpoch);
 
          // 1. Базовый метод
          // Создаем начальную дату Unix эпохи
