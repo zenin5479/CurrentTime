@@ -11,7 +11,6 @@ namespace CurrentTime
          CaseTwo();
          Console.WriteLine();
          CaseThree();
-         
 
          Console.ReadKey();
       }
