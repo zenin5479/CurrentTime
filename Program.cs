@@ -120,21 +120,11 @@ namespace CurrentTime
          DateTime utcDateTime = epoch.AddMilliseconds(timestampTwo);
          // Получаем нужный часовой пояс
          TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
-
-         // Конвертируем в локальное время
-         Console.WriteLine("=====================================================");
+         Console.WriteLine("===================================================================");
          Console.WriteLine("Конвертация из Timestamp через TimeZoneInfo с учетом часового пояса");
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
-
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Конвертация из Timestamp в DateTime через DateTimeOffset");
-
-         //
-         // Получение времени из timestamp обратно
-         DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timeStampThree);
-         Console.WriteLine("Восстановлено из timestamp: {0:dd.MM.yyyy HH:mm:ss.fff}", fromTimestamp);
       }
 
       public static void CaseThree()
