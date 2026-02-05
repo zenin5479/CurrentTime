@@ -118,7 +118,6 @@ namespace CurrentTime
          // С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
          DateTime utcDateTime = epoch.AddMilliseconds(timestampTwo);
-
          // Получаем нужный часовой пояс
          TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
 
