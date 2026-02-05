@@ -135,9 +135,8 @@ namespace CurrentTime
 
          Console.WriteLine("========================================================");
          Console.WriteLine("Конвертация из Timestamp в DateTime через DateTimeOffset");
-
-
-
+         
+         //
          // Получение времени из timestamp обратно
          DateTimeOffset fromTimestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestampoffset);
          Console.WriteLine("Восстановлено из timestamp: {0:dd.MM.yyyy HH:mm:ss.fff}", fromTimestamp);
