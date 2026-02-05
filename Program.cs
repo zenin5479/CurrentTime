@@ -136,7 +136,7 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp (ms): {0}", timestampone);
 
          // Способ 2
-         Console.WriteLine("========================================================");
+         Console.WriteLine("===================================");
          Console.WriteLine("Способ 2. Ручной расчет через Ticks");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTimeOffset datetimeoffset = DateTimeOffset.UtcNow;
@@ -144,7 +144,7 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp (ms): {0}", timestamptwo);
 
          // Способ 3
-         Console.WriteLine("========================================================");
+         Console.WriteLine("=======================================================");
          Console.WriteLine("Способ 3. new DateTimeOffset().ToUnixTimeMilliseconds()");
          Console.WriteLine("Текущее UTC время в миллисекундах: {0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.UtcNow);
          DateTimeOffset specificdate = DateTimeOffset.UtcNow;
