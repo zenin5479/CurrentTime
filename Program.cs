@@ -96,12 +96,14 @@ namespace CurrentTime
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOffsetTwo);
          Console.WriteLine("Timestamp: {0}", timeStampThree);
 
-         DateTime datelocalnow = DateTime.Now;
-         DateTime universalnow = datelocalnow.ToUniversalTime();
+         Console.WriteLine("========================================================");
+         Console.WriteLine("Получение Timestamp через DateTimeOffset (рекомендуется)");
+         DateTime dateNow = DateTime.Now;
+         DateTime universalnow = dateNow.ToUniversalTime();
          DateTime unixepoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
          long timestampepoch = (long)(universalnow - unixepoch).TotalMilliseconds;
          Console.WriteLine("=== Способ 2: Ручной расчет ===");
-         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", datelocalnow);
+         Console.WriteLine("Локальное время: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
          Console.WriteLine("Unix timestamp: {0}", timestampepoch);
 
          // Проверка совпадения
