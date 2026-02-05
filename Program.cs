@@ -170,7 +170,7 @@ namespace CurrentTime
          Console.WriteLine("Unix timestamp (ms): {0}", timestampfive);
 
          // Проверка эквивалентности
-         Console.WriteLine("========================================================");
+         Console.WriteLine("=========================");
          Console.WriteLine("Проверка эквивалентности:");
          Console.WriteLine("Способ 1 == Способ 2: {0}", timestampone == timestamptwo);
          Console.WriteLine("Способ 2 == Способ 3: {0}", timestamptwo == timestampthree);
