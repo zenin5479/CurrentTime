@@ -100,7 +100,7 @@ namespace CurrentTime
          Console.WriteLine("Получение Timestamp через DateTime.Now");
          DateTime dateNow = DateTime.Now;
          DateTime universalNow = dateNow.ToUniversalTime();
-         DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+         DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
          long timestampEpoch = (long)(universalNow - unixEpoch).TotalMilliseconds;
          Console.WriteLine("Текущее локальное время: {0}", dateNow);
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
