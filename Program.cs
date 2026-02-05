@@ -106,18 +106,18 @@ namespace CurrentTime
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateNow);
          Console.WriteLine("Timestamp: {0}", timestampEpoch);
 
-         // 1. Базовый метод
+         // Конвертируем timestamp в локальное время
          // Создаем начальную дату Unix эпохи
          DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-         // Конвертируем timestamp в локальное время
-         Console.WriteLine("========================================================");
-         Console.WriteLine("Конвертация из Timestamp в DateTime через DateTimeOffset");
+        
+         Console.WriteLine("=====================================================");
+         Console.WriteLine("Конвертация из Timestamp в DateTime через ToLocalTime");
          DateTime localTime = epoch.AddMilliseconds(timeStampOne).ToLocalTime();
          Console.WriteLine("Базовое преобразование: {0}", localTime);
          Console.WriteLine("Базовое преобразование с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localTime);
 
-         // 2. С учетом часового пояса
+         // С учетом часового пояса
          // Свойство TimeZoneInfo.Id - "Russian Standard Time"
          DateTime utcDateTime = epoch.AddMilliseconds(timestampTwo);
 
