@@ -107,6 +107,8 @@ namespace CurrentTime
          TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
 
          // Конвертируем в локальное время
+         Console.WriteLine("===================================");
+         Console.WriteLine("Конвертация из Timestamp в DateTime");
          DateTime localZone = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, timeZone);
          Console.WriteLine("С учетом часового пояса: {0}", localZone);
          Console.WriteLine("С учетом часового пояса с милисекундами: {0:dd.MM.yyyy HH:mm:ss.fff}", localZone);
