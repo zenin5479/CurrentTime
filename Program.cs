@@ -78,6 +78,10 @@ namespace CurrentTime
          Console.WriteLine("Текущее локальное время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeNow);
          Console.WriteLine("Timestamp: {0}", timeStampOne);
 
+         Console.WriteLine("Текущее UTC время: {0}", dateTimeOne);
+         Console.WriteLine("Текущее UTC время в милисекундах: {0:dd.MM.yyyy HH:mm:ss.fff}", dateTimeOne);
+         Console.WriteLine("Timestamp: {0}", timestampOne);
+
          Console.WriteLine("=============================================");
          Console.WriteLine("Получение Timestamp через DateTimeOffset и TimeSpan с учетом часового пояса");
          DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
